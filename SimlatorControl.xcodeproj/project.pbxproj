@@ -19,6 +19,11 @@
 		2B5D27D123ED92910017D789 /* SCState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27D023ED92910017D789 /* SCState.swift */; };
 		2B5D27D323ED92AD0017D789 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27D223ED92AD0017D789 /* Store.swift */; };
 		2B5D27D523ED92C90017D789 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27D423ED92C90017D789 /* Global.swift */; };
+		2B5D27D823ED95780017D789 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27D723ED95780017D789 /* DeviceType.swift */; };
+		2B5D27DA23ED96480017D789 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27D923ED96480017D789 /* Runtime.swift */; };
+		2B5D27DC23ED96A30017D789 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DB23ED96A30017D789 /* Device.swift */; };
+		2B5D27DE23ED97450017D789 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DD23ED97450017D789 /* Pair.swift */; };
+		2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		2B5D27D023ED92910017D789 /* SCState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCState.swift; sourceTree = "<group>"; };
 		2B5D27D223ED92AD0017D789 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2B5D27D423ED92C90017D789 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		2B5D27D723ED95780017D789 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		2B5D27D923ED96480017D789 /* Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
+		2B5D27DB23ED96A30017D789 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		2B5D27DD23ED97450017D789 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
+		2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimCtlList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 		2B5D279B23ED91490017D789 /* SimlatorControl */ = {
 			isa = PBXGroup;
 			children = (
+				2B5D27D623ED93290017D789 /* Model */,
 				2B5D27CB23ED92510017D789 /* Redux */,
 				2B5D27D423ED92C90017D789 /* Global.swift */,
 				2B5D279C23ED91490017D789 /* AppDelegate.swift */,
@@ -156,6 +167,18 @@
 				2B5D27D223ED92AD0017D789 /* Store.swift */,
 			);
 			path = Redux;
+			sourceTree = "<group>";
+		};
+		2B5D27D623ED93290017D789 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D27D723ED95780017D789 /* DeviceType.swift */,
+				2B5D27D923ED96480017D789 /* Runtime.swift */,
+				2B5D27DB23ED96A30017D789 /* Device.swift */,
+				2B5D27DD23ED97450017D789 /* Pair.swift */,
+				2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,8 +317,13 @@
 				2B5D27CF23ED92800017D789 /* SCMessage.swift in Sources */,
 				2B5D27D323ED92AD0017D789 /* Store.swift in Sources */,
 				2B5D279D23ED91490017D789 /* AppDelegate.swift in Sources */,
+				2B5D27DE23ED97450017D789 /* Pair.swift in Sources */,
+				2B5D27D823ED95780017D789 /* DeviceType.swift in Sources */,
+				2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */,
 				2B5D27CD23ED926C0017D789 /* Reducer.swift in Sources */,
+				2B5D27DA23ED96480017D789 /* Runtime.swift in Sources */,
 				2B5D27D523ED92C90017D789 /* Global.swift in Sources */,
+				2B5D27DC23ED96A30017D789 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

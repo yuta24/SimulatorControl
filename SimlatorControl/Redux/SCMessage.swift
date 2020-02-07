@@ -10,4 +10,5 @@ import Foundation
 
 enum SCMessage {
     case prepare
+    case prepared(SimCtlList)
 }

@@ -9,4 +9,5 @@
 import Foundation
 
 struct SCState {
+    var simCtlList: SimCtlList!
 }

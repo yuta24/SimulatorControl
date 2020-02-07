@@ -7,10 +7,34 @@
 //
 
 import Foundation
+import Cocoa
 
 func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
     switch message {
     case .prepare:
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+        process.arguments = ["simctl", "list", "-j"]
+        let pipe = Pipe()
+        process.standardOutput = pipe
+        process.launch()
+
+        let readHandle = pipe.fileHandleForReading
+        let data = readHandle.readDataToEndOfFile()
+
+        do {
+            let output = try JSONDecoder().decode(SimCtlList.self, from: data)
+            return [.sync(work: { () -> SCMessage in
+                .prepared(output)
+            })]
+        } catch let error {
+            debugPrint(error)
+            return []
+        }
+
+    case .prepared(let list):
+        state.simCtlList = list
+
         return []
     }
 }
