@@ -15,6 +15,11 @@
 		2B5D275E23ED882D0017D789 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5D275C23ED882D0017D789 /* LaunchScreen.storyboard */; };
 		2B5D276923ED882E0017D789 /* SimlatorControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D276823ED882E0017D789 /* SimlatorControlTests.swift */; };
 		2B5D277423ED882E0017D789 /* SimlatorControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D277323ED882E0017D789 /* SimlatorControlUITests.swift */; };
+		2B5D278323ED89CE0017D789 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D278223ED89CE0017D789 /* Store.swift */; };
+		2B5D278523ED89ED0017D789 /* SCState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D278423ED89ED0017D789 /* SCState.swift */; };
+		2B5D278723ED89F50017D789 /* SCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D278623ED89F50017D789 /* SCMessage.swift */; };
+		2B5D278923ED8A030017D789 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D278823ED8A030017D789 /* Reducer.swift */; };
+		2B5D278B23ED8A4D0017D789 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D278A23ED8A4D0017D789 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		2B5D277323ED882E0017D789 /* SimlatorControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimlatorControlUITests.swift; sourceTree = "<group>"; };
 		2B5D277523ED882E0017D789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B5D278123ED883B0017D789 /* SimlatorControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimlatorControl.entitlements; sourceTree = "<group>"; };
+		2B5D278223ED89CE0017D789 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2B5D278423ED89ED0017D789 /* SCState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCState.swift; sourceTree = "<group>"; };
+		2B5D278623ED89F50017D789 /* SCMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMessage.swift; sourceTree = "<group>"; };
+		2B5D278823ED8A030017D789 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		2B5D278A23ED8A4D0017D789 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +110,9 @@
 		2B5D275023ED882B0017D789 /* SimlatorControl */ = {
 			isa = PBXGroup;
 			children = (
+				2B5D278C23ED8D700017D789 /* Redux */,
 				2B5D278123ED883B0017D789 /* SimlatorControl.entitlements */,
+				2B5D278A23ED8A4D0017D789 /* Global.swift */,
 				2B5D275123ED882B0017D789 /* AppDelegate.swift */,
 				2B5D275323ED882B0017D789 /* SceneDelegate.swift */,
 				2B5D275523ED882B0017D789 /* ContentView.swift */,
@@ -136,6 +148,17 @@
 				2B5D277523ED882E0017D789 /* Info.plist */,
 			);
 			path = SimlatorControlUITests;
+			sourceTree = "<group>";
+		};
+		2B5D278C23ED8D700017D789 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D278223ED89CE0017D789 /* Store.swift */,
+				2B5D278423ED89ED0017D789 /* SCState.swift */,
+				2B5D278623ED89F50017D789 /* SCMessage.swift */,
+				2B5D278823ED8A030017D789 /* Reducer.swift */,
+			);
+			path = Redux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5D278B23ED8A4D0017D789 /* Global.swift in Sources */,
+				2B5D278523ED89ED0017D789 /* SCState.swift in Sources */,
 				2B5D275223ED882B0017D789 /* AppDelegate.swift in Sources */,
 				2B5D275423ED882B0017D789 /* SceneDelegate.swift in Sources */,
 				2B5D275623ED882B0017D789 /* ContentView.swift in Sources */,
+				2B5D278923ED8A030017D789 /* Reducer.swift in Sources */,
+				2B5D278323ED89CE0017D789 /* Store.swift in Sources */,
+				2B5D278723ED89F50017D789 /* SCMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
