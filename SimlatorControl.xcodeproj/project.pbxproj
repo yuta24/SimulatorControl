@@ -24,6 +24,7 @@
 		2B5D27DC23ED96A30017D789 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DB23ED96A30017D789 /* Device.swift */; };
 		2B5D27DE23ED97450017D789 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DD23ED97450017D789 /* Pair.swift */; };
 		2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */; };
+		2B5D27E323EE299B0017D789 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27E223EE299B0017D789 /* DevicesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		2B5D27DB23ED96A30017D789 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2B5D27DD23ED97450017D789 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimCtlList.swift; sourceTree = "<group>"; };
+		2B5D27E223EE299B0017D789 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +122,9 @@
 			children = (
 				2B5D27D623ED93290017D789 /* Model */,
 				2B5D27CB23ED92510017D789 /* Redux */,
+				2B5D27E123EE291A0017D789 /* View */,
 				2B5D27D423ED92C90017D789 /* Global.swift */,
 				2B5D279C23ED91490017D789 /* AppDelegate.swift */,
-				2B5D279E23ED91490017D789 /* ContentView.swift */,
 				2B5D27A023ED914B0017D789 /* Assets.xcassets */,
 				2B5D27A523ED914B0017D789 /* Main.storyboard */,
 				2B5D27A823ED914B0017D789 /* Info.plist */,
@@ -179,6 +181,15 @@
 				2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2B5D27E123EE291A0017D789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B5D279E23ED91490017D789 /* ContentView.swift */,
+				2B5D27E223EE299B0017D789 /* DevicesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				2B5D27D123ED92910017D789 /* SCState.swift in Sources */,
 				2B5D279F23ED91490017D789 /* ContentView.swift in Sources */,
 				2B5D27CF23ED92800017D789 /* SCMessage.swift in Sources */,
+				2B5D27E323EE299B0017D789 /* DevicesView.swift in Sources */,
 				2B5D27D323ED92AD0017D789 /* Store.swift in Sources */,
 				2B5D279D23ED91490017D789 /* AppDelegate.swift in Sources */,
 				2B5D27DE23ED97450017D789 /* Pair.swift in Sources */,

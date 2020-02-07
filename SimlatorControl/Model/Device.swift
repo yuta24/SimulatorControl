@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Device: Decodable {
+struct Device: Equatable, Decodable {
     let availabilityError: String?
     let dataPath: String
     let logPath: String
