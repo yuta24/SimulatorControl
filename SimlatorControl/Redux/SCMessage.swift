@@ -9,4 +9,5 @@
 import Foundation
 
 enum SCMessage {
+    case prepare
 }

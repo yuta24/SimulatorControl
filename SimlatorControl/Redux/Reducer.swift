@@ -9,5 +9,8 @@
 import Foundation
 
 func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
-    return []
+    switch message {
+    case .prepare:
+        return []
+    }
 }
