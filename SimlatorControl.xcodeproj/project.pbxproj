@@ -25,6 +25,7 @@
 		2B5D27DE23ED97450017D789 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DD23ED97450017D789 /* Pair.swift */; };
 		2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */; };
 		2B5D27E323EE299B0017D789 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27E223EE299B0017D789 /* DevicesView.swift */; };
+		2B5D27E523EE2A4C0017D789 /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		2B5D27DD23ED97450017D789 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimCtlList.swift; sourceTree = "<group>"; };
 		2B5D27E223EE299B0017D789 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
+		2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				2B5D279E23ED91490017D789 /* ContentView.swift */,
 				2B5D27E223EE299B0017D789 /* DevicesView.swift */,
+				2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				2B5D27D323ED92AD0017D789 /* Store.swift in Sources */,
 				2B5D279D23ED91490017D789 /* AppDelegate.swift in Sources */,
 				2B5D27DE23ED97450017D789 /* Pair.swift in Sources */,
+				2B5D27E523EE2A4C0017D789 /* DeviceDetailView.swift in Sources */,
 				2B5D27D823ED95780017D789 /* DeviceType.swift in Sources */,
 				2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */,
 				2B5D27CD23ED926C0017D789 /* Reducer.swift in Sources */,

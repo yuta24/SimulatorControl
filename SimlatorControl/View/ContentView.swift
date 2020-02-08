@@ -15,12 +15,15 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            DevicesView(store: self.store)
+            DevicesView(store: self.store, selectedDevice: self.$selectedDevice)
+
+            if selectedDevice != nil {
+                DeviceDetailView(store: self.store, selectedDevice: selectedDevice!)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
