@@ -24,6 +24,7 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
 
         do {
             let output = try JSONDecoder().decode(SimCtlList.self, from: data)
+            debugPrint(output)
             return [.sync(work: { () -> SCMessage in
                 .prepared(output)
             })]
