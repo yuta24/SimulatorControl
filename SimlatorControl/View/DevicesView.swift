@@ -16,12 +16,22 @@ struct DevicesView: View {
         let devices = store.state.simCtlList.devices.map { $0.1 }.flatMap { $0 }
 
         return List(devices, id: \.udid) { device in
-            Text(device.name).onTapGesture {
-                self.selectedDevice = device
+            HStack(spacing: 8) {
+                if device.state.lowercased() == "booted" {
+                    Circle().fill(Color.green)
+                        .fixedSize()
+                } else if device.state.lowercased() == "shutdown" {
+                    Circle().strokeBorder()
+                        .fixedSize()
+                }
+
+                Text("\(device.name)").onTapGesture {
+                    self.selectedDevice = device
+                }
             }
         }
         .listStyle(SidebarListStyle())
-        .frame(minWidth: 225, maxWidth: 300)
+        .frame(minWidth: 225, maxWidth: 400)
     }
 }
 
