@@ -27,6 +27,35 @@ class XcrunService {
         }
     }
 
+    func appearance(udid: String) -> String? {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+        process.arguments = ["simctl", "ui", "\(udid)", "appearance"]
+
+        switch execute(process) {
+        case .success(let data):
+            return String(data: data, encoding: .utf8)
+        case .failure(let error):
+            debugPrint(error)
+            return nil
+        }
+    }
+
+    @discardableResult
+    func setAppearance(appearance: String, to udid: String) -> String? {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+        process.arguments = ["simctl", "ui", "\(udid)", "appearance", "\(appearance)"]
+
+        switch execute(process) {
+        case .success(let data):
+            return String(data: data, encoding: .utf8)
+        case .failure(let error):
+            debugPrint(error)
+            return nil
+        }
+    }
+
     private func execute(_ process: Process) -> Result<Data, Error> {
         let inpipe  = Pipe()
         let outpipe = Pipe()

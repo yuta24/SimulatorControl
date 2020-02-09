@@ -13,8 +13,14 @@ struct DeviceDetailView: View {
 
     var selectedDevice: Device
 
+    @State private var appearance: Appearance = .unknown
+
     var body: some View {
-        ScrollView {
+        self.appearance = (xcrun.appearance(udid: self.selectedDevice.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
+            .flatMap(Appearance.init(rawValue:)) ?? .unknown
+
+        // FIXME: Improve rendering performance
+        return ScrollView {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Name: ")
@@ -35,6 +41,20 @@ struct DeviceDetailView: View {
                 }
 
                 Divider()
+
+                HStack {
+                    Text("Appearance: ")
+                    Text("\(appearance.rawValue)")
+
+                    Spacer()
+
+                    if appearance.isSupported {
+                        Button("Toggle") {
+                            self.appearance.toggle()
+                            xcrun.setAppearance(appearance: self.appearance.rawValue, to: self.selectedDevice.udid)
+                        }
+                    }
+                }
             }
         }
         .padding()
