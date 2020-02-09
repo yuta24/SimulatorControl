@@ -1,15 +1,15 @@
 //
-//  SimlatorControlTests.swift
-//  SimlatorControlTests
+//  SimulatorControlTests.swift
+//  SimulatorControlTests
 //
-//  Created by Yu Tawata on 2020/02/07.
+//  Created by Yu Tawata on 2020/02/09.
 //  Copyright © 2020 Yu Tawata. All rights reserved.
 //
 
 import XCTest
-@testable import SimlatorControl
+@testable import SimulatorControl
 
-class SimlatorControlTests: XCTestCase {
+class SimulatorControlTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

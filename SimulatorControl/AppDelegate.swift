@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SimlatorControl
+//  SimulatorControl
 //
-//  Created by Yu Tawata on 2020/02/07.
+//  Created by Yu Tawata on 2020/02/09.
 //  Copyright © 2020 Yu Tawata. All rights reserved.
 //
 
@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        store.send(.terminate)
     }
 
 
