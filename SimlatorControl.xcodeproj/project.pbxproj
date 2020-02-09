@@ -26,6 +26,8 @@
 		2B5D27E023EDB0D90017D789 /* SimCtlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */; };
 		2B5D27E323EE299B0017D789 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27E223EE299B0017D789 /* DevicesView.swift */; };
 		2B5D27E523EE2A4C0017D789 /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */; };
+		2BCA0F3923EFA9D100C774B5 /* ScreenRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */; };
+		2BFA903023EFD0E500D08819 /* XcrunService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA902F23EFD0E500D08819 /* XcrunService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimCtlList.swift; sourceTree = "<group>"; };
 		2B5D27E223EE299B0017D789 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
+		2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
+		2BFA902F23EFD0E500D08819 /* XcrunService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcrunService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		2B5D279B23ED91490017D789 /* SimlatorControl */ = {
 			isa = PBXGroup;
 			children = (
+				2BCA0F3723EFA9BB00C774B5 /* Service */,
 				2B5D27D623ED93290017D789 /* Model */,
 				2B5D27CB23ED92510017D789 /* Redux */,
 				2B5D27E123EE291A0017D789 /* View */,
@@ -193,6 +198,15 @@
 				2B5D27E423EE2A4C0017D789 /* DeviceDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2BCA0F3723EFA9BB00C774B5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */,
+				2BFA902F23EFD0E500D08819 /* XcrunService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BCA0F3923EFA9D100C774B5 /* ScreenRecordingService.swift in Sources */,
 				2B5D27D123ED92910017D789 /* SCState.swift in Sources */,
 				2B5D279F23ED91490017D789 /* ContentView.swift in Sources */,
 				2B5D27CF23ED92800017D789 /* SCMessage.swift in Sources */,
@@ -339,6 +354,7 @@
 				2B5D27CD23ED926C0017D789 /* Reducer.swift in Sources */,
 				2B5D27DA23ED96480017D789 /* Runtime.swift in Sources */,
 				2B5D27D523ED92C90017D789 /* Global.swift in Sources */,
+				2BFA903023EFD0E500D08819 /* XcrunService.swift in Sources */,
 				2B5D27DC23ED96A30017D789 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

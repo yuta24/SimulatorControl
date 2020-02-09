@@ -8,4 +8,5 @@
 
 import Foundation
 
+let xcrun = XcrunService()
 let store = Store<SCState, SCMessage>(initial: .init(), reducer: reducer)

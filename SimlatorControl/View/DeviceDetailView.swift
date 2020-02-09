@@ -33,10 +33,20 @@ struct DeviceDetailView: View {
                     Text(selectedDevice.state)
                         .multilineTextAlignment(.leading)
                 }
+
+                Divider()
             }
         }
         .padding()
         .frame(maxWidth: 700)
+    }
+
+    init(
+        store: Store<SCState, SCMessage>,
+        selectedDevice: Device
+    ) {
+        self.store = store
+        self.selectedDevice = selectedDevice
     }
 }
 
