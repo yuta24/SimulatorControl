@@ -10,13 +10,18 @@ import Foundation
 
 extension Xcrun {
     struct Device: Equatable, Decodable {
+        enum State: String, Decodable {
+            case booted = "Booted"
+            case shutdown = "Shutdown"
+        }
+
         let availabilityError: String?
         let dataPath: String
         let logPath: String
         let udid: String
         let isAvailable: Bool
         let deviceTypeIdentifier: String
-        let state: String
+        let state: State
         let name: String
     }
 }

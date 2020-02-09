@@ -1,5 +1,5 @@
 //
-//  XcrunService.swift
+//  Service.swift
 //  SimlatorControl
 //
 //  Created by Yu Tawata on 2020/02/09.
@@ -14,6 +14,20 @@ extension Xcrun {
             case process(String)
         }
 
+        func boot(udid: String) {
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "boot", "\(udid)"]
+            execute(process)
+        }
+
+        func shutdown(udid: String) {
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "shutdown", "\(udid)"]
+            execute(process)
+        }
+
         func list() -> SimCtlList? {
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
@@ -26,6 +40,13 @@ extension Xcrun {
                 debugPrint(error)
                 return nil
             }
+        }
+
+        func deleteUnavailable() {
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "delete", "unavailable"]
+            execute(process)
         }
 
         func appearance(udid: String) -> String? {
@@ -46,8 +67,10 @@ extension Xcrun {
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
             process.arguments = ["simctl", "ui", "\(udid)", "appearance", "\(appearance)"]
+            execute(process)
         }
 
+        @discardableResult
         private func execute(_ process: Process) -> Result<Data, Error> {
             let inpipe  = Pipe()
             let outpipe = Pipe()

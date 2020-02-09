@@ -10,9 +10,15 @@ import Foundation
 
 enum SCMessage {
     case prepare
-    case prepared(Xcrun.SimCtlList)
     case terminate
 
+    case deleteUnavailable
+
+    case boot(Xcrun.Device)
+    case shutdown(Xcrun.Device)
+
+    case fetch
+    case fetched(Xcrun.SimCtlList)
     case select(DeviceExt)
     case setAppearance(Xcrun.Appearance)
 }

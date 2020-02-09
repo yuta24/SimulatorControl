@@ -51,10 +51,23 @@ struct DeviceDetailView: View {
                     }
 
                     HStack {
-                        Text("State: \(selected.ext.device.state)")
+                        Text("State: \(selected.ext.device.state.rawValue)")
                             .multilineTextAlignment(.leading)
 
                         Spacer()
+
+                        ViewBuilder.build { () -> AnyView in
+                            switch selected.ext.device.state {
+                            case .booted:
+                                return AnyView(Button("Shutdown") {
+                                    self.store.send(.shutdown(selected.ext.device))
+                                })
+                            case .shutdown:
+                                return AnyView(Button("Boot") {
+                                    self.store.send(.boot(selected.ext.device))
+                                })
+                            }
+                        }
                     }
 
                     Divider()

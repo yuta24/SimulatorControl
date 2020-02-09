@@ -24,12 +24,14 @@
 		2B39B05623EFF9E9006DA684 /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04523EFF9E9006DA684 /* Runtime.swift */; };
 		2B39B05723EFF9E9006DA684 /* Xcrun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04623EFF9E9006DA684 /* Xcrun.swift */; };
 		2B39B05823EFF9E9006DA684 /* SimCtlList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04723EFF9E9006DA684 /* SimCtlList.swift */; };
-		2B39B05923EFF9E9006DA684 /* XcrunService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04823EFF9E9006DA684 /* XcrunService.swift */; };
+		2B39B05923EFF9E9006DA684 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04823EFF9E9006DA684 /* Service.swift */; };
 		2B39B05A23EFF9E9006DA684 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04923EFF9E9006DA684 /* Device.swift */; };
 		2B39B05B23EFF9E9006DA684 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04A23EFF9E9006DA684 /* DeviceType.swift */; };
 		2B39B05C23EFF9E9006DA684 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04B23EFF9E9006DA684 /* Appearance.swift */; };
 		2B39B05D23EFF9E9006DA684 /* ScreenRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04C23EFF9E9006DA684 /* ScreenRecordingService.swift */; };
 		2B39B05E23EFF9E9006DA684 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04D23EFF9E9006DA684 /* Global.swift */; };
+		2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B05F23F008A1006DA684 /* TooltipView.swift */; };
+		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +76,14 @@
 		2B39B04523EFF9E9006DA684 /* Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runtime.swift; sourceTree = "<group>"; };
 		2B39B04623EFF9E9006DA684 /* Xcrun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xcrun.swift; sourceTree = "<group>"; };
 		2B39B04723EFF9E9006DA684 /* SimCtlList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimCtlList.swift; sourceTree = "<group>"; };
-		2B39B04823EFF9E9006DA684 /* XcrunService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcrunService.swift; sourceTree = "<group>"; };
+		2B39B04823EFF9E9006DA684 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2B39B04923EFF9E9006DA684 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2B39B04A23EFF9E9006DA684 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		2B39B04B23EFF9E9006DA684 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		2B39B04C23EFF9E9006DA684 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
 		2B39B04D23EFF9E9006DA684 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		2B39B05F23F008A1006DA684 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		2B39B06123F00F1A006DA684 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				2B39B03A23EFF9E9006DA684 /* DeviceDetailView.swift */,
 				2B39B03B23EFF9E9006DA684 /* DevicesView.swift */,
 				2B39B03C23EFF9E9006DA684 /* ContentView.swift */,
+				2B39B05F23F008A1006DA684 /* TooltipView.swift */,
+				2B39B06123F00F1A006DA684 /* ViewBuilder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,7 +213,7 @@
 				2B39B04523EFF9E9006DA684 /* Runtime.swift */,
 				2B39B04623EFF9E9006DA684 /* Xcrun.swift */,
 				2B39B04723EFF9E9006DA684 /* SimCtlList.swift */,
-				2B39B04823EFF9E9006DA684 /* XcrunService.swift */,
+				2B39B04823EFF9E9006DA684 /* Service.swift */,
 				2B39B04923EFF9E9006DA684 /* Device.swift */,
 				2B39B04A23EFF9E9006DA684 /* DeviceType.swift */,
 				2B39B04B23EFF9E9006DA684 /* Appearance.swift */,
@@ -350,10 +356,11 @@
 				2B39B04E23EFF9E9006DA684 /* DeviceDetailView.swift in Sources */,
 				2B39B05023EFF9E9006DA684 /* ContentView.swift in Sources */,
 				2B39B05E23EFF9E9006DA684 /* Global.swift in Sources */,
+				2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */,
 				2B39B05423EFF9E9006DA684 /* Store.swift in Sources */,
 				2B39B05C23EFF9E9006DA684 /* Appearance.swift in Sources */,
 				2B39B04F23EFF9E9006DA684 /* DevicesView.swift in Sources */,
-				2B39B05923EFF9E9006DA684 /* XcrunService.swift in Sources */,
+				2B39B05923EFF9E9006DA684 /* Service.swift in Sources */,
 				2B39B05223EFF9E9006DA684 /* Reducer.swift in Sources */,
 				2B39B05D23EFF9E9006DA684 /* ScreenRecordingService.swift in Sources */,
 				2B39B05623EFF9E9006DA684 /* Runtime.swift in Sources */,
@@ -363,6 +370,7 @@
 				2B39B05323EFF9E9006DA684 /* SCState.swift in Sources */,
 				2B39B05B23EFF9E9006DA684 /* DeviceType.swift in Sources */,
 				2B39B05723EFF9E9006DA684 /* Xcrun.swift in Sources */,
+				2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */,
 				2B39B05523EFF9E9006DA684 /* Pair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

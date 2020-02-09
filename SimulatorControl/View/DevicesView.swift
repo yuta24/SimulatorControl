@@ -17,7 +17,7 @@ struct DevicesView: View {
             var exts = store.state.exts
 
             if showBootedOnly {
-                exts.removeAll(where: { $0.device.state.lowercased() != "booted" })
+                exts.removeAll(where: { $0.device.state != .booted })
             }
 
             return exts
@@ -32,10 +32,10 @@ struct DevicesView: View {
 
             List(exts) { ext in
                 HStack(spacing: 8) {
-                    if ext.device.state.lowercased() == "booted" {
+                    if ext.device.state == .booted {
                         Circle().fill(Color.green)
                             .fixedSize()
-                    } else if ext.device.state.lowercased() == "shutdown" {
+                    } else if ext.device.state == .shutdown {
                         Circle().strokeBorder()
                             .fixedSize()
                     }
