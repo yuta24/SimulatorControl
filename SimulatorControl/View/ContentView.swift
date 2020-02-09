@@ -18,7 +18,7 @@ struct ContentView: View {
             DevicesView(store: self.store, selectedDevice: self.$selectedDevice)
 
             if selectedDevice != nil {
-                DeviceDetailView(store: self.store, selectedDevice: selectedDevice!)
+                DeviceDetailView(store: self.store, selected: selectedDevice!)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
