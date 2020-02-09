@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DevicesView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
-    @Binding var selectedDevice: DeviceExt?
     @State var showBootedOnly: Bool = false
 
     var body: some View {
@@ -42,7 +41,7 @@ struct DevicesView: View {
                     }
 
                     Text("\(ext.device.name)").onTapGesture {
-                        self.selectedDevice = ext
+                        self.store.send(.select(ext))
                     }
 
                     Spacer()

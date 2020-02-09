@@ -18,10 +18,16 @@ struct DeviceExt: Identifiable {
     }
 }
 
+struct DeviceDetailState {
+    var ext: DeviceExt
+    var appearance: Xcrun.Appearance
+}
+
 struct SCState {
     static var empty: SCState {
-        .init(exts: [])
+        .init(exts: [], detail: nil)
     }
 
     var exts: [DeviceExt]
+    var detail: DeviceDetailState?
 }

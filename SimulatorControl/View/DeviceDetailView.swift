@@ -11,83 +11,76 @@ import SwiftUI
 struct DeviceDetailView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
-    var selected: DeviceExt
-
-    @State private var appearance: Xcrun.Appearance = .unknown
-
     var body: some View {
-        self.appearance = (xcrun.appearance(udid: self.selected.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
-            .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
+        guard let selected = store.state.detail else {
+            return AnyView(EmptyView())
+        }
 
         // FIXME: Improve rendering performance
-        return ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text(selected.device.name)
-                        .font(.title)
-                        .multilineTextAlignment(.leading)
-
-                    Spacer()
-                }
-
-                if selected.runtime != nil {
+        return AnyView(
+            ScrollView {
+                VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("\(selected.runtime!.name) (\(selected.runtime!.buildversion))")
+                        Text(selected.ext.device.name)
+                            .font(.title)
+                            .multilineTextAlignment(.leading)
 
                         Spacer()
                     }
-                } else {
+
+                    if selected.ext.runtime != nil {
+                        HStack {
+                            Text("\(selected.ext.runtime!.name) (\(selected.ext.runtime!.buildversion))")
+
+                            Spacer()
+                        }
+                    } else {
+                        HStack {
+                            Text("\(selected.ext.device.availabilityError!)")
+                                .foregroundColor(.red)
+
+                            Spacer()
+                        }
+                    }
+
                     HStack {
-                        Text("\(selected.device.availabilityError!)")
-                            .foregroundColor(.red)
+                        Text("UDID: \(selected.ext.device.udid)")
+                            .multilineTextAlignment(.leading)
 
                         Spacer()
                     }
-                }
 
-                HStack {
-                    Text("UDID: ")
-                    Text(selected.device.udid)
-                        .multilineTextAlignment(.leading)
+                    HStack {
+                        Text("State: \(selected.ext.device.state)")
+                            .multilineTextAlignment(.leading)
 
-                    Spacer()
-                }
+                        Spacer()
+                    }
 
-                HStack {
-                    Text("State: ")
-                    Text(selected.device.state)
-                        .multilineTextAlignment(.leading)
+                    Divider()
 
-                    Spacer()
-                }
+                    HStack {
+                        Text("Appearance: \(selected.appearance.rawValue)")
 
-                Divider()
+                        Spacer()
 
-                HStack {
-                    Text("Appearance: ")
-                    Text("\(appearance.rawValue)")
-
-                    Spacer()
-
-                    if appearance.isSupported {
-                        Button("Toggle") {
-                            self.appearance.toggle()
-                            xcrun.setAppearance(appearance: self.appearance.rawValue, to: self.selected.device.udid)
+                        if selected.appearance.isSupported {
+                            Button("Toggle") {
+                                var appearance = selected.appearance
+                                appearance.toggle()
+                                self.store.send(.setAppearance(appearance))
+                            }
                         }
                     }
                 }
             }
-        }
-        .padding()
-        .frame(maxWidth: 700)
+            .padding()
+            .frame(maxWidth: 700)
+        )
     }
 
-    init(
-        store: Store<SCState, SCMessage>,
-        selected: DeviceExt
-    ) {
+    init(store: Store<SCState, SCMessage>) {
         self.store = store
-        self.selected = selected
     }
 }
 

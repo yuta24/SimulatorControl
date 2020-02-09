@@ -11,15 +11,10 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
-    @State private var selectedDevice: DeviceExt?
-
     var body: some View {
         NavigationView {
-            DevicesView(store: self.store, selectedDevice: self.$selectedDevice)
-
-            if selectedDevice != nil {
-                DeviceDetailView(store: self.store, selected: selectedDevice!)
-            }
+            DevicesView(store: self.store)
+            DeviceDetailView(store: self.store)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

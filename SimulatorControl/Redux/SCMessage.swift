@@ -12,4 +12,7 @@ enum SCMessage {
     case prepare
     case prepared(Xcrun.SimCtlList)
     case terminate
+
+    case select(DeviceExt)
+    case setAppearance(Xcrun.Appearance)
 }
