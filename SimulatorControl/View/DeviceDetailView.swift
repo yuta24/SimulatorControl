@@ -57,55 +57,64 @@ struct DeviceDetailView: View {
                         }
                     }
 
-                    HStack {
-                        Text("UDID: \(selected.ext.device.udid)")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("UDID").font(.caption).foregroundColor(.secondary)
+                        Text("\(selected.ext.device.udid)")
                             .multilineTextAlignment(.leading)
-
-                        Spacer()
                     }
 
-                    HStack {
-                        Text("Data: \(selected.ext.device.dataPath)").onTapGesture {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Data").font(.caption).foregroundColor(.secondary)
+                        Text("\(selected.ext.device.dataPath)").onTapGesture {
                             NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.dataPathUrl])
                         }
                     }
 
-                    HStack {
-                        Text("Log: \(selected.ext.device.logPath)").onTapGesture {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Log").font(.caption).foregroundColor(.secondary)
+                        Text("\(selected.ext.device.logPath)").onTapGesture {
                             NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.logPathUrl])
                         }
                     }
 
-                    HStack {
-                        Text("State: \(selected.ext.device.state.rawValue)")
-                            .multilineTextAlignment(.leading)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("State").font(.caption).foregroundColor(.secondary)
 
-                        Spacer()
+                        HStack {
+                            Text("\(selected.ext.device.state.rawValue)")
+                                .multilineTextAlignment(.leading)
 
-                        ViewBuilder.build { () -> AnyView in
-                            switch selected.ext.device.state {
-                            case .booted:
-                                return AnyView(Button("Shutdown") {
-                                    self.store.send(.shutdown(selected.ext.device))
-                                })
-                            case .shutdown:
-                                return AnyView(Button("Boot") {
-                                    self.store.send(.boot(selected.ext.device))
-                                })
+                            Spacer()
+
+                            ViewBuilder.build { () -> AnyView in
+                                switch selected.ext.device.state {
+                                case .booted:
+                                    return AnyView(Button("Shutdown") {
+                                        self.store.send(.shutdown(selected.ext.device))
+                                    })
+                                case .shutdown:
+                                    return AnyView(Button("Boot") {
+                                        self.store.send(.boot(selected.ext.device))
+                                    })
+                                }
                             }
                         }
                     }
 
-                    HStack {
-                        Text("Appearance: \(selected.appearance.rawValue)")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Appearance").font(.caption).foregroundColor(.secondary)
 
-                        Spacer()
+                        HStack {
+                            Text("\(selected.appearance.rawValue)")
 
-                        if selected.appearance.isSupported {
-                            Button("Toggle") {
-                                var appearance = selected.appearance
-                                appearance.toggle()
-                                self.store.send(.setAppearance(appearance))
+                            Spacer()
+
+                            if selected.appearance.isSupported {
+                                Button("Toggle") {
+                                    var appearance = selected.appearance
+                                    appearance.toggle()
+                                    self.store.send(.setAppearance(appearance))
+                                }
                             }
                         }
                     }
