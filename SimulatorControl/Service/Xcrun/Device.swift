@@ -23,5 +23,12 @@ extension Xcrun {
         let deviceTypeIdentifier: String
         let state: State
         let name: String
+
+        var dataPathUrl: URL {
+            URL(fileURLWithPath: dataPath.replacingOccurrences(of: "\\", with: ""))
+        }
+        var logPathUrl: URL {
+            URL(fileURLWithPath: logPath.replacingOccurrences(of: "\\", with: ""))
+        }
     }
 }

@@ -51,6 +51,18 @@ struct DeviceDetailView: View {
                     }
 
                     HStack {
+                        Text("Data: \(selected.ext.device.dataPath)").onTapGesture {
+                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.dataPathUrl])
+                        }
+                    }
+
+                    HStack {
+                        Text("Log: \(selected.ext.device.logPath)").onTapGesture {
+                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.logPathUrl])
+                        }
+                    }
+
+                    HStack {
                         Text("State: \(selected.ext.device.state.rawValue)")
                             .multilineTextAlignment(.leading)
 
