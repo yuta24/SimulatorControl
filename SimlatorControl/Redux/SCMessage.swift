@@ -10,6 +10,6 @@ import Foundation
 
 enum SCMessage {
     case prepare
-    case prepared(SimCtlList)
+    case prepared(Xcrun.SimCtlList)
     case terminate
 }

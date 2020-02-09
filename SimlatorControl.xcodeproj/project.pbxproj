@@ -29,6 +29,7 @@
 		2BCA0F3923EFA9D100C774B5 /* ScreenRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */; };
 		2BFA903023EFD0E500D08819 /* XcrunService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA902F23EFD0E500D08819 /* XcrunService.swift */; };
 		2BFA903223EFDD5D00D08819 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA903123EFDD5D00D08819 /* Appearance.swift */; };
+		2BFA903523EFE9D000D08819 /* Xcrun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA903423EFE9D000D08819 /* Xcrun.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
 		2BFA902F23EFD0E500D08819 /* XcrunService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcrunService.swift; sourceTree = "<group>"; };
 		2BFA903123EFDD5D00D08819 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		2BFA903423EFE9D000D08819 /* Xcrun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xcrun.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,12 +185,6 @@
 		2B5D27D623ED93290017D789 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2B5D27D723ED95780017D789 /* DeviceType.swift */,
-				2B5D27D923ED96480017D789 /* Runtime.swift */,
-				2B5D27DB23ED96A30017D789 /* Device.swift */,
-				2B5D27DD23ED97450017D789 /* Pair.swift */,
-				2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */,
-				2BFA903123EFDD5D00D08819 /* Appearance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,10 +202,25 @@
 		2BCA0F3723EFA9BB00C774B5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2BFA903323EFE9BF00D08819 /* Xcrun */,
 				2BCA0F3823EFA9D100C774B5 /* ScreenRecordingService.swift */,
-				2BFA902F23EFD0E500D08819 /* XcrunService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2BFA903323EFE9BF00D08819 /* Xcrun */ = {
+			isa = PBXGroup;
+			children = (
+				2BFA903423EFE9D000D08819 /* Xcrun.swift */,
+				2BFA902F23EFD0E500D08819 /* XcrunService.swift */,
+				2B5D27D723ED95780017D789 /* DeviceType.swift */,
+				2B5D27D923ED96480017D789 /* Runtime.swift */,
+				2B5D27DB23ED96A30017D789 /* Device.swift */,
+				2B5D27DD23ED97450017D789 /* Pair.swift */,
+				2B5D27DF23EDB0D90017D789 /* SimCtlList.swift */,
+				2BFA903123EFDD5D00D08819 /* Appearance.swift */,
+			);
+			path = Xcrun;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +358,7 @@
 				2B5D27D123ED92910017D789 /* SCState.swift in Sources */,
 				2B5D279F23ED91490017D789 /* ContentView.swift in Sources */,
 				2B5D27CF23ED92800017D789 /* SCMessage.swift in Sources */,
+				2BFA903523EFE9D000D08819 /* Xcrun.swift in Sources */,
 				2B5D27E323EE299B0017D789 /* DevicesView.swift in Sources */,
 				2BFA903223EFDD5D00D08819 /* Appearance.swift in Sources */,
 				2B5D27D323ED92AD0017D789 /* Store.swift in Sources */,

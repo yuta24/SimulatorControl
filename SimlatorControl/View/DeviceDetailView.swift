@@ -11,32 +11,32 @@ import SwiftUI
 struct DeviceDetailView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
-    var selectedDevice: Device
+    var selectedDevice: DeviceExt
 
-    @State private var appearance: Appearance = .unknown
+    @State private var appearance: Xcrun.Appearance = .unknown
 
     var body: some View {
-        self.appearance = (xcrun.appearance(udid: self.selectedDevice.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
-            .flatMap(Appearance.init(rawValue:)) ?? .unknown
+        self.appearance = (xcrun.appearance(udid: self.selectedDevice.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
+            .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
 
         // FIXME: Improve rendering performance
         return ScrollView {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Name: ")
-                    Text(selectedDevice.name)
+                    Text(selectedDevice.device.name)
                         .multilineTextAlignment(.leading)
                 }
 
                 HStack {
                     Text("UDID: ")
-                    Text(selectedDevice.udid)
+                    Text(selectedDevice.device.udid)
                         .multilineTextAlignment(.leading)
                 }
 
                 HStack {
                     Text("State: ")
-                    Text(selectedDevice.state)
+                    Text(selectedDevice.device.state)
                         .multilineTextAlignment(.leading)
                 }
 
@@ -51,7 +51,7 @@ struct DeviceDetailView: View {
                     if appearance.isSupported {
                         Button("Toggle") {
                             self.appearance.toggle()
-                            xcrun.setAppearance(appearance: self.appearance.rawValue, to: self.selectedDevice.udid)
+                            xcrun.setAppearance(appearance: self.appearance.rawValue, to: self.selectedDevice.device.udid)
                         }
                     }
                 }
@@ -63,7 +63,7 @@ struct DeviceDetailView: View {
 
     init(
         store: Store<SCState, SCMessage>,
-        selectedDevice: Device
+        selectedDevice: DeviceExt
     ) {
         self.store = store
         self.selectedDevice = selectedDevice

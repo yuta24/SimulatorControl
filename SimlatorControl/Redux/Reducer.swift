@@ -20,8 +20,17 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         } else {
             return []
         }
+
     case .prepared(let list):
-        state.simCtlList = list
+        state.exts = {
+            let devices = list.devices.map { key, value in value.map { ($0, key) } }.flatMap { $0 }
+            return devices.map { device in
+                DeviceExt(
+                    device: device.0,
+                    deviceType: list.devicetypes.first(where: { device.0.deviceTypeIdentifier == $0.identifier }),
+                    runtime: list.runtimes.first(where: { device.1 == $0.identifier }))
+            }
+        }()
 
         return []
 

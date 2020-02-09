@@ -8,6 +8,20 @@
 
 import Foundation
 
+struct DeviceExt: Identifiable {
+    var device: Xcrun.Device
+    var deviceType: Xcrun.DeviceType?
+    var runtime: Xcrun.Runtime?
+
+    var id: String {
+        device.udid
+    }
+}
+
 struct SCState {
-    var simCtlList: SimCtlList!
+    static var empty: SCState {
+        .init(exts: [])
+    }
+
+    var exts: [DeviceExt]
 }

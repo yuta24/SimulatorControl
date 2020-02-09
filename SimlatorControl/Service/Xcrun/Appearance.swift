@@ -8,14 +8,16 @@
 
 import Foundation
 
-enum Appearance: String {
-    case light
-    case dark
-    case unsupported
-    case unknown
+extension Xcrun {
+    enum Appearance: String {
+        case light
+        case dark
+        case unsupported
+        case unknown
+    }
 }
 
-extension Appearance {
+extension Xcrun.Appearance {
     var isSupported: Bool {
         switch self {
         case .unsupported, .unknown:

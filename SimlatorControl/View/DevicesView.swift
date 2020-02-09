@@ -10,20 +10,18 @@ import SwiftUI
 
 struct DevicesView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
-    @Binding var selectedDevice: Device?
+    @Binding var selectedDevice: DeviceExt?
     @State var showBootedOnly: Bool = false
 
     var body: some View {
-        let devices: [Device] = {
-            var devices = store.state.simCtlList.devices
-                .map { $0.1 }
-                .flatMap { $0 }
+        let exts: [DeviceExt] = {
+            var exts = store.state.exts
 
             if showBootedOnly {
-                devices.removeAll(where: { $0.state.lowercased() != "booted" })
+                exts.removeAll(where: { $0.device.state.lowercased() != "booted" })
             }
 
-            return devices
+            return exts
         }()
 
         return VStack(alignment: .leading, spacing: 8) {
@@ -33,18 +31,18 @@ struct DevicesView: View {
             .padding(.top, 8)
             .padding(.leading, 12)
 
-            List(devices, id: \.udid) { device in
+            List(exts) { ext in
                 HStack(spacing: 8) {
-                    if device.state.lowercased() == "booted" {
+                    if ext.device.state.lowercased() == "booted" {
                         Circle().fill(Color.green)
                             .fixedSize()
-                    } else if device.state.lowercased() == "shutdown" {
+                    } else if ext.device.state.lowercased() == "shutdown" {
                         Circle().strokeBorder()
                             .fixedSize()
                     }
 
-                    Text("\(device.name)").onTapGesture {
-                        self.selectedDevice = device
+                    Text("\(ext.device.name)").onTapGesture {
+                        self.selectedDevice = ext
                     }
 
                     Spacer()
@@ -58,6 +56,6 @@ struct DevicesView: View {
 
 //struct DevicesView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        DevicesView(store: .init(initial: .init(), reducer: { _, _ in [] }), selectedDevice: <#Binding<Device?>#>)
+//        DevicesView(store: .init(initial: .empty, reducer: { _, _ in [] }), selectedDevice: <#Binding<Device?>#>)
 //    }
 //}

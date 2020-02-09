@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
-    @State private var selectedDevice: Device?
+    @State private var selectedDevice: DeviceExt?
 
     var body: some View {
         NavigationView {
@@ -27,6 +27,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: .init(initial: .init(), reducer: { _, _ in [] }))
+        ContentView(store: .init(initial: .empty, reducer: { _, _ in [] }))
     }
 }
