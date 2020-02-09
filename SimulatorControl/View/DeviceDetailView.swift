@@ -8,6 +8,20 @@
 
 import SwiftUI
 
+struct InstalledAppView: View {
+    var apps: [App]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Installed Apps").font(.headline)
+
+            ForEach(apps, id: \.bundleIdentifier) {
+                Text($0.bundleDisplayName)
+            }
+        }
+    }
+}
+
 struct DeviceDetailView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
@@ -82,8 +96,6 @@ struct DeviceDetailView: View {
                         }
                     }
 
-                    Divider()
-
                     HStack {
                         Text("Appearance: \(selected.appearance.rawValue)")
 
@@ -97,6 +109,10 @@ struct DeviceDetailView: View {
                             }
                         }
                     }
+
+                    Divider()
+
+                    InstalledAppView(apps: selected.apps)
                 }
             }
             .padding()

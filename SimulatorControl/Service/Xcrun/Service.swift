@@ -70,6 +70,25 @@ extension Xcrun {
             execute(process)
         }
 
+        func listApps(udid: String) -> [String: App] {
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "listapps", "\(udid)"]
+
+            switch execute(process) {
+            case .success(let data):
+                do {
+                    return try PropertyListDecoder().decode([String: App].self, from: data)
+                } catch let error {
+                    debugPrint(error)
+                    return [:]
+                }
+            case .failure(let error):
+                debugPrint(error)
+                return [:]
+            }
+        }
+
         @discardableResult
         private func execute(_ process: Process) -> Result<Data, Error> {
             let inpipe  = Pipe()

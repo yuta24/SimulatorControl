@@ -80,7 +80,8 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
     case .select(let ext):
         let appearance = (xcrun.appearance(udid: ext.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
                     .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
-        state.detail = .init(ext: ext, appearance: appearance)
+        let apps = xcrun.listApps(udid: ext.device.udid)
+        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }))
 
         return []
 

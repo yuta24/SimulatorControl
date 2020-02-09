@@ -21,6 +21,7 @@ struct DeviceExt: Identifiable {
 struct DeviceDetailState {
     var ext: DeviceExt
     var appearance: Xcrun.Appearance
+    var apps: [App]
 }
 
 struct SCState {
