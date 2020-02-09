@@ -21,23 +21,29 @@ struct DeviceDetailView: View {
 
         // FIXME: Improve rendering performance
         return ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text("Name: ")
                     Text(selectedDevice.device.name)
+                        .font(.title)
                         .multilineTextAlignment(.leading)
+
+                    Spacer()
                 }
 
                 HStack {
                     Text("UDID: ")
                     Text(selectedDevice.device.udid)
                         .multilineTextAlignment(.leading)
+
+                    Spacer()
                 }
 
                 HStack {
                     Text("State: ")
                     Text(selectedDevice.device.state)
                         .multilineTextAlignment(.leading)
+
+                    Spacer()
                 }
 
                 Divider()
