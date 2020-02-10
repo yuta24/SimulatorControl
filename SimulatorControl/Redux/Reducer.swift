@@ -50,6 +50,19 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
             })
         ]
 
+    case .startRecording(let device):
+        state.detail?.operation = xcrun.startRecording(udid: device.udid)
+
+        return []
+
+    case .stopRecording:
+        if let operation = state.detail?.operation {
+            operation.cancel()
+        }
+        state.detail?.operation = .none
+
+        return []
+
     case .fetch:
         if let list = xcrun.list() {
             return [
@@ -78,10 +91,14 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         return []
 
     case .select(let ext):
+        if let operation = state.detail?.operation {
+            operation.cancel()
+        }
+
         let appearance = (xcrun.appearance(udid: ext.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
                     .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
         let apps = xcrun.listApps(udid: ext.device.udid)
-        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }))
+        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), operation: .none)
 
         return []
 

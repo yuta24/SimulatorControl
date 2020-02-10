@@ -40,6 +40,16 @@ struct DeviceDetailView: View {
                             .multilineTextAlignment(.leading)
 
                         Spacer()
+
+                        if selected.operation == nil {
+                            Button("Start recording") {
+                               self.store.send(.startRecording(selected.ext.device))
+                            }
+                        } else {
+                            Button("Stop recording") {
+                                self.store.send(.stopRecording)
+                            }
+                        }
                     }
 
                     if selected.ext.runtime != nil {

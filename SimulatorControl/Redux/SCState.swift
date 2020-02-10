@@ -22,6 +22,7 @@ struct DeviceDetailState {
     var ext: DeviceExt
     var appearance: Xcrun.Appearance
     var apps: [App]
+    var operation: Operation?
 }
 
 struct SCState {

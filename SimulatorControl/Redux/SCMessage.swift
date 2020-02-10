@@ -16,6 +16,8 @@ enum SCMessage {
 
     case boot(Xcrun.Device)
     case shutdown(Xcrun.Device)
+    case startRecording(Xcrun.Device)
+    case stopRecording
 
     case fetch
     case fetched(Xcrun.SimCtlList)

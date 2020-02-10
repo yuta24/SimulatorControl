@@ -33,6 +33,7 @@
 		2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B05F23F008A1006DA684 /* TooltipView.swift */; };
 		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
 		2B39B06423F04981006DA684 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06323F04981006DA684 /* App.swift */; };
+		2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238823F18B690004C118 /* AsyncOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		2B39B05F23F008A1006DA684 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		2B39B06123F00F1A006DA684 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 		2B39B06323F04981006DA684 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2B6B238823F18B690004C118 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		2B39B00923EFF93F006DA684 /* SimulatorControl */ = {
 			isa = PBXGroup;
 			children = (
+				2B6B238823F18B690004C118 /* AsyncOperation.swift */,
 				2B39B03D23EFF9E9006DA684 /* Redux */,
 				2B39B04223EFF9E9006DA684 /* Service */,
 				2B39B03923EFF9E9006DA684 /* View */,
@@ -367,6 +370,7 @@
 				2B39B05223EFF9E9006DA684 /* Reducer.swift in Sources */,
 				2B39B05D23EFF9E9006DA684 /* ScreenRecordingService.swift in Sources */,
 				2B39B05623EFF9E9006DA684 /* Runtime.swift in Sources */,
+				2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */,
 				2B39B06423F04981006DA684 /* App.swift in Sources */,
 				2B39B05A23EFF9E9006DA684 /* Device.swift in Sources */,
 				2B39B00B23EFF93F006DA684 /* AppDelegate.swift in Sources */,

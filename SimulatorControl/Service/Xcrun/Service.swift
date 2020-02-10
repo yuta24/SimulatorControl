@@ -49,6 +49,13 @@ extension Xcrun {
             execute(process)
         }
 
+        func startRecording(udid: String) -> Operation {
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "io", "\(udid)", "recordVideo", "--force", "/var/tmp/\(udid).mov"]
+            return asyncExecute(process)
+        }
+
         func appearance(udid: String) -> String? {
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
@@ -109,6 +116,28 @@ extension Xcrun {
             } else {
                 return .failure(Failure.process(String(data: err, encoding: .utf8)!))
             }
+        }
+
+        @discardableResult
+        private func asyncExecute(_ process: Process) -> Operation {
+            let inpipe  = Pipe()
+            let outpipe = Pipe()
+            let errpipe = Pipe()
+
+            process.standardOutput = inpipe
+            process.standardOutput = outpipe
+            process.standardError = errpipe
+
+            let operation = AsyncOperation {
+                try! process.run()
+            }
+            operation.cancelBlock = {
+                process.interrupt()
+            }
+
+            operation.start()
+
+            return operation
         }
     }
 }
