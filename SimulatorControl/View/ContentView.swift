@@ -16,7 +16,7 @@ struct ContentView: View {
             HStack(alignment: .firstTextBaseline) {
                 Spacer()
 
-                Button("Delete unavailable's") {
+                Button("Delete unavailables") {
                     self.store.send(.deleteUnavailable)
                 }
                 .toolTip("Delete all unavailable devices.")
