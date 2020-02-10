@@ -41,7 +41,7 @@ struct DeviceDetailView: View {
 
                         Spacer()
 
-                        if selected.operation == nil {
+                        if selected.recording == nil {
                             Button("Start recording") {
                                self.store.send(.startRecording(selected.ext.device))
                             }

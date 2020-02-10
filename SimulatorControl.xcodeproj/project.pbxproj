@@ -34,6 +34,7 @@
 		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
 		2B39B06423F04981006DA684 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06323F04981006DA684 /* App.swift */; };
 		2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238823F18B690004C118 /* AsyncOperation.swift */; };
+		2B6B238E23F19A2F0004C118 /* mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238D23F19A2F0004C118 /* mv.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		2B39B06123F00F1A006DA684 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 		2B39B06323F04981006DA684 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2B6B238823F18B690004C118 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		2B6B238D23F19A2F0004C118 /* mv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6B238823F18B690004C118 /* AsyncOperation.swift */,
+				2B6B238A23F199D00004C118 /* CLI */,
 				2B39B03D23EFF9E9006DA684 /* Redux */,
 				2B39B04223EFF9E9006DA684 /* Service */,
 				2B39B03923EFF9E9006DA684 /* View */,
@@ -225,6 +228,14 @@
 				2B39B06323F04981006DA684 /* App.swift */,
 			);
 			path = Xcrun;
+			sourceTree = "<group>";
+		};
+		2B6B238A23F199D00004C118 /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				2B6B238D23F19A2F0004C118 /* mv.swift */,
+			);
+			path = CLI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +390,7 @@
 				2B39B05B23EFF9E9006DA684 /* DeviceType.swift in Sources */,
 				2B39B05723EFF9E9006DA684 /* Xcrun.swift in Sources */,
 				2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */,
+				2B6B238E23F19A2F0004C118 /* mv.swift in Sources */,
 				2B39B05523EFF9E9006DA684 /* Pair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

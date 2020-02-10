@@ -49,11 +49,11 @@ extension Xcrun {
             execute(process)
         }
 
-        func startRecording(udid: String) -> Operation {
+        func startRecording(udid: String) -> (Operation, String) {
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
             process.arguments = ["simctl", "io", "\(udid)", "recordVideo", "--force", "/var/tmp/\(udid).mov"]
-            return asyncExecute(process)
+            return (asyncExecute(process), "/var/tmp/\(udid).mov")
         }
 
         func appearance(udid: String) -> String? {

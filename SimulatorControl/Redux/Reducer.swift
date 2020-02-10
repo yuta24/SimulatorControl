@@ -51,15 +51,16 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         ]
 
     case .startRecording(let device):
-        state.detail?.operation = xcrun.startRecording(udid: device.udid)
+        state.detail?.recording = xcrun.startRecording(udid: device.udid)
 
         return []
 
     case .stopRecording:
-        if let operation = state.detail?.operation {
+        if let (operation, file) = state.detail?.recording {
             operation.cancel()
+            mv(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true)
         }
-        state.detail?.operation = .none
+        state.detail?.recording = .none
 
         return []
 
@@ -91,14 +92,14 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         return []
 
     case .select(let ext):
-        if let operation = state.detail?.operation {
+        if let (operation, _) = state.detail?.recording {
             operation.cancel()
         }
 
         let appearance = (xcrun.appearance(udid: ext.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
                     .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
         let apps = xcrun.listApps(udid: ext.device.udid)
-        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), operation: .none)
+        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), recording: .none)
 
         return []
 
