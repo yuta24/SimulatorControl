@@ -18,11 +18,23 @@ struct DeviceExt: Identifiable {
     }
 }
 
+struct AppExt: Identifiable {
+    var app: App
+
+    var id: String {
+        app.bundleIdentifier
+    }
+}
+
 struct DeviceDetailState {
     var ext: DeviceExt
     var appearance: Xcrun.Appearance
     var apps: [App]
     var recording: (Operation, String)?
+}
+
+struct AppDetialState {
+    var appExt: AppExt
 }
 
 struct SCState {
@@ -32,4 +44,5 @@ struct SCState {
 
     var exts: [DeviceExt]
     var deviceDetail: DeviceDetailState?
+    var appDetail: AppDetialState?
 }

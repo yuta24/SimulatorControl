@@ -11,12 +11,16 @@ import SwiftUI
 struct InstalledAppView: View {
     var apps: [App]
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Installed Apps").font(.headline)
+    @State private var selected: App?
 
-            ForEach(apps, id: \.bundleIdentifier) {
-                Text($0.bundleDisplayName)
+    var body: some View {
+        let label = selected ?? apps.first!
+
+        return MenuButton(label.bundleDisplayName) {
+            ForEach(apps, id: \.bundleIdentifier) { app in
+                Button(app.bundleDisplayName) {
+                    self.selected = app
+                }
             }
         }
     }
@@ -129,9 +133,11 @@ struct DeviceDetailView: View {
                         }
                     }
 
-                    Divider()
+                    if !selected.apps.isEmpty {
+                        Divider()
 
-                    InstalledAppView(apps: selected.apps)
+                        InstalledAppView(apps: selected.apps)
+                    }
                 }
             }
             .padding()
