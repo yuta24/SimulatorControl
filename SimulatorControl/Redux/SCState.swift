@@ -27,9 +27,9 @@ struct DeviceDetailState {
 
 struct SCState {
     static var empty: SCState {
-        .init(exts: [], detail: nil)
+        .init(exts: [], deviceDetail: nil)
     }
 
     var exts: [DeviceExt]
-    var detail: DeviceDetailState?
+    var deviceDetail: DeviceDetailState?
 }

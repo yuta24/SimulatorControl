@@ -51,16 +51,16 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         ]
 
     case .startRecording(let device):
-        state.detail?.recording = xcrun.startRecording(udid: device.udid)
+        state.deviceDetail?.recording = xcrun.startRecording(udid: device.udid)
 
         return []
 
     case .stopRecording:
-        if let (operation, file) = state.detail?.recording {
+        if let (operation, file) = state.deviceDetail?.recording {
             operation.cancel()
             mv(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true)
         }
-        state.detail?.recording = .none
+        state.deviceDetail?.recording = .none
 
         return []
 
@@ -92,24 +92,24 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         return []
 
     case .select(let ext):
-        if let (operation, _) = state.detail?.recording {
+        if let (operation, _) = state.deviceDetail?.recording {
             operation.cancel()
         }
 
         let appearance = (xcrun.appearance(udid: ext.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
                     .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
         let apps = xcrun.listApps(udid: ext.device.udid)
-        state.detail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), recording: .none)
+        state.deviceDetail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), recording: .none)
 
         return []
 
     case .setAppearance(let appearance):
-        guard let ext = store.state.detail?.ext else {
+        guard let ext = store.state.deviceDetail?.ext else {
             return []
         }
 
         xcrun.setAppearance(appearance: appearance.rawValue, to: ext.device.udid)
-        state.detail?.appearance = appearance
+        state.deviceDetail?.appearance = appearance
 
         return []
     }

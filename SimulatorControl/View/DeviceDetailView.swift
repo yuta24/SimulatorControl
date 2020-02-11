@@ -26,7 +26,7 @@ struct DeviceDetailView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
     var body: some View {
-        guard let selected = store.state.detail else {
+        guard let selected = store.state.deviceDetail else {
             return AnyView(EmptyView())
         }
 
