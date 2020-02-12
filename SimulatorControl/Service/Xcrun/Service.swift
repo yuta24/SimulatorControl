@@ -96,6 +96,14 @@ extension Xcrun {
             }
         }
 
+        func sendPush(udid: String, bundleIdentifier: String, apns: String) {
+            try! apns.data(using: .utf8)?.write(to: URL(fileURLWithPath: "/var/tmp/\(bundleIdentifier).apns"))
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/usr/bin/xcrun")
+            process.arguments = ["simctl", "push", "\(udid)", "\(bundleIdentifier)", "/var/tmp/\(bundleIdentifier).apns"]
+            execute(process)
+        }
+
         @discardableResult
         private func execute(_ process: Process) -> Result<Data, Error> {
             let inpipe  = Pipe()

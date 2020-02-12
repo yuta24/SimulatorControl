@@ -112,5 +112,10 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
         state.deviceDetail?.appearance = appearance
 
         return []
+
+    case .sendPush(let device, let app, let apns):
+        xcrun.sendPush(udid: device.udid, bundleIdentifier: app.bundleIdentifier, apns: apns)
+
+        return []
     }
 }

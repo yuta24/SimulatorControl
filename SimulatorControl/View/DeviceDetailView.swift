@@ -8,8 +8,38 @@
 
 import SwiftUI
 
+struct ControlAppView: View {
+    @State private var apns: String = ""
+
+    var push: (String) -> Void
+
+    var body: some View {
+        TabView {
+            HStack(spacing: 8) {
+                TextField("JSON", text: $apns)
+                    .lineLimit(10)
+                    .multilineTextAlignment(.leading)
+                    .frame(alignment: .topLeading)
+
+                Button("Send") {
+                    self.push(self.apns)
+                }
+                .disabled(apns.isEmpty)
+            }
+            .tabItem({ Text("Send Push") })
+
+            HStack {
+                Text("")
+            }
+            .tabItem({ Text("Edit Defaults") })
+        }
+        .frame(height: 400)
+    }
+}
+
 struct InstalledAppView: View {
     var apps: [App]
+    var push: (App, String) -> Void
 
     @State private var selected: App?
 
@@ -49,6 +79,10 @@ struct InstalledAppView: View {
                         NSWorkspace.shared.activateFileViewerSelecting([label.dataContainerUrl!])
                     }
                 }
+            }
+
+            ControlAppView {
+                self.push(label, $0)
             }
         }
     }
@@ -164,7 +198,9 @@ struct DeviceDetailView: View {
                     if !selected.apps.isEmpty {
                         Divider()
 
-                        InstalledAppView(apps: selected.apps)
+                        InstalledAppView(apps: selected.apps) { app, apns in
+                            self.store.send(.sendPush(selected.ext.device, app, apns))
+                        }
                     }
                 }
             }
