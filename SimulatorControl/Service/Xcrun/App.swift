@@ -39,4 +39,8 @@ struct App: Decodable {
     let dataContainer: String?
     let groupContainers: [String: String]
     let path: String
+
+    var dataContainerUrl: URL? {
+        dataContainer.flatMap(URL.init(string:))
+    }
 }

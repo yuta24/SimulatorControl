@@ -16,10 +16,38 @@ struct InstalledAppView: View {
     var body: some View {
         let label = selected ?? apps.first!
 
-        return MenuButton(label.bundleDisplayName) {
-            ForEach(apps, id: \.bundleIdentifier) { app in
-                Button(app.bundleDisplayName) {
-                    self.selected = app
+        return VStack(alignment: .leading, spacing: 8) {
+            Text("Installed Apps").font(.headline)
+
+            MenuButton(label.bundleDisplayName) {
+                ForEach(apps, id: \.bundleIdentifier) { app in
+                    Button(app.bundleDisplayName) {
+                        self.selected = app
+                    }
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Identifier").font(.caption).foregroundColor(.secondary)
+                Text(label.bundleIdentifier)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Display Name").font(.caption).foregroundColor(.secondary)
+                Text(label.bundleDisplayName)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Versioon").font(.caption).foregroundColor(.secondary)
+                Text(label.bundleVersion)
+            }
+
+            if label.dataContainer != nil {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Data Container").font(.caption).foregroundColor(.secondary)
+                    Text("\(label.dataContainer!)").onTapGesture {
+                        NSWorkspace.shared.activateFileViewerSelecting([label.dataContainerUrl!])
+                    }
                 }
             }
         }
