@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  SimlatorControl
 //
 //  Created by Yu Tawata on 2020/02/07.
@@ -8,20 +8,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @ObservedObject var store: Store<SCState, SCMessage>
 
     var body: some View {
         NavigationView {
-            DevicesView(store: self.store)
-            DeviceDetailView(store: self.store)
+            DevicesView(store: store)
+            DeviceDetailView(store: store)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: .init(initial: .empty, reducer: { _, _ in [] }))
+        MainView(store: .init(initial: .empty, reducer: { _, _ in [] }))
     }
 }

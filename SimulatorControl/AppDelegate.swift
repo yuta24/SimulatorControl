@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create the SwiftUI view that provides the window contents.
         store.send(.prepare)
 
-        let contentView = ContentView(store: store)
+        let contentView = MainView(store: store)
 
         // Create the window and set the content view. 
         window = NSWindow(

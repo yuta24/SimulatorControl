@@ -15,7 +15,7 @@
 		2B39B02C23EFF942006DA684 /* SimulatorControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B02B23EFF942006DA684 /* SimulatorControlUITests.swift */; };
 		2B39B04E23EFF9E9006DA684 /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03A23EFF9E9006DA684 /* DeviceDetailView.swift */; };
 		2B39B04F23EFF9E9006DA684 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03B23EFF9E9006DA684 /* DevicesView.swift */; };
-		2B39B05023EFF9E9006DA684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03C23EFF9E9006DA684 /* ContentView.swift */; };
+		2B39B05023EFF9E9006DA684 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03C23EFF9E9006DA684 /* MainView.swift */; };
 		2B39B05123EFF9E9006DA684 /* SCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03E23EFF9E9006DA684 /* SCMessage.swift */; };
 		2B39B05223EFF9E9006DA684 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B03F23EFF9E9006DA684 /* Reducer.swift */; };
 		2B39B05323EFF9E9006DA684 /* SCState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04023EFF9E9006DA684 /* SCState.swift */; };
@@ -28,7 +28,6 @@
 		2B39B05A23EFF9E9006DA684 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04923EFF9E9006DA684 /* Device.swift */; };
 		2B39B05B23EFF9E9006DA684 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04A23EFF9E9006DA684 /* DeviceType.swift */; };
 		2B39B05C23EFF9E9006DA684 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04B23EFF9E9006DA684 /* Appearance.swift */; };
-		2B39B05D23EFF9E9006DA684 /* ScreenRecordingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04C23EFF9E9006DA684 /* ScreenRecordingService.swift */; };
 		2B39B05E23EFF9E9006DA684 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B04D23EFF9E9006DA684 /* Global.swift */; };
 		2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B05F23F008A1006DA684 /* TooltipView.swift */; };
 		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
@@ -71,7 +70,7 @@
 		2B39B02D23EFF942006DA684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B39B03A23EFF9E9006DA684 /* DeviceDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
 		2B39B03B23EFF9E9006DA684 /* DevicesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
-		2B39B03C23EFF9E9006DA684 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2B39B03C23EFF9E9006DA684 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2B39B03E23EFF9E9006DA684 /* SCMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCMessage.swift; sourceTree = "<group>"; };
 		2B39B03F23EFF9E9006DA684 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		2B39B04023EFF9E9006DA684 /* SCState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCState.swift; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		2B39B04923EFF9E9006DA684 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2B39B04A23EFF9E9006DA684 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		2B39B04B23EFF9E9006DA684 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		2B39B04C23EFF9E9006DA684 /* ScreenRecordingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecordingService.swift; sourceTree = "<group>"; };
 		2B39B04D23EFF9E9006DA684 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		2B39B05F23F008A1006DA684 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		2B39B06123F00F1A006DA684 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
@@ -187,12 +185,11 @@
 		2B39B03923EFF9E9006DA684 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B66741B23F44A6F00248B89 /* Common */,
 				2B66741723F2E65000248B89 /* AppDetailView.swift */,
 				2B39B03A23EFF9E9006DA684 /* DeviceDetailView.swift */,
 				2B39B03B23EFF9E9006DA684 /* DevicesView.swift */,
-				2B39B03C23EFF9E9006DA684 /* ContentView.swift */,
-				2B39B05F23F008A1006DA684 /* TooltipView.swift */,
-				2B39B06123F00F1A006DA684 /* ViewBuilder.swift */,
+				2B39B03C23EFF9E9006DA684 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				2B39B04323EFF9E9006DA684 /* Xcrun */,
-				2B39B04C23EFF9E9006DA684 /* ScreenRecordingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -231,6 +227,15 @@
 				2B39B06323F04981006DA684 /* App.swift */,
 			);
 			path = Xcrun;
+			sourceTree = "<group>";
+		};
+		2B66741B23F44A6F00248B89 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2B39B06123F00F1A006DA684 /* ViewBuilder.swift */,
+				2B39B05F23F008A1006DA684 /* TooltipView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2B6B238A23F199D00004C118 /* CLI */ = {
@@ -374,7 +379,7 @@
 			files = (
 				2B39B05823EFF9E9006DA684 /* SimCtlList.swift in Sources */,
 				2B39B04E23EFF9E9006DA684 /* DeviceDetailView.swift in Sources */,
-				2B39B05023EFF9E9006DA684 /* ContentView.swift in Sources */,
+				2B39B05023EFF9E9006DA684 /* MainView.swift in Sources */,
 				2B39B05E23EFF9E9006DA684 /* Global.swift in Sources */,
 				2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */,
 				2B39B05423EFF9E9006DA684 /* Store.swift in Sources */,
@@ -382,7 +387,6 @@
 				2B39B04F23EFF9E9006DA684 /* DevicesView.swift in Sources */,
 				2B39B05923EFF9E9006DA684 /* Service.swift in Sources */,
 				2B39B05223EFF9E9006DA684 /* Reducer.swift in Sources */,
-				2B39B05D23EFF9E9006DA684 /* ScreenRecordingService.swift in Sources */,
 				2B39B05623EFF9E9006DA684 /* Runtime.swift in Sources */,
 				2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */,
 				2B66741823F2E65000248B89 /* AppDetailView.swift in Sources */,
