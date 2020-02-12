@@ -37,5 +37,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 
+    @IBAction private func refresh(_ sender: AnyObject) {
+        store.send(.fetch)
+    }
+
+    @IBAction private func deleteUnavailable(_ sender: AnyObject) {
+        store.send(.deleteUnavailable)
+    }
 }
 
