@@ -58,7 +58,7 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
     case .stopRecording:
         if let (operation, file) = state.deviceDetail?.recording {
             operation.cancel()
-            mv(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true)
+            MV(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true).execute()
         }
         state.deviceDetail?.recording = .none
 
