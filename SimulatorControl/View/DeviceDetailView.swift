@@ -15,17 +15,23 @@ struct ControlAppView: View {
 
     var body: some View {
         TabView {
-            HStack(spacing: 8) {
-                TextField("JSON", text: $apns)
-                    .lineLimit(10)
-                    .multilineTextAlignment(.leading)
-                    .frame(alignment: .topLeading)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("APS")
 
-                Button("Send") {
-                    self.push(self.apns)
+                TextView(text: $apns)
+                    .cornerRadius(4)
+                    .frame(minHeight: 200, maxHeight: .infinity)
+
+                HStack {
+                    Spacer()
+
+                    Button("Send") {
+                        self.push(self.apns)
+                    }
+                    .disabled(apns.isEmpty)
                 }
-                .disabled(apns.isEmpty)
             }
+            .padding()
             .tabItem({ Text("Send Push") })
 
             HStack {

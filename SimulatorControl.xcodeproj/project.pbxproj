@@ -32,7 +32,7 @@
 		2B39B06023F008A1006DA684 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B05F23F008A1006DA684 /* TooltipView.swift */; };
 		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
 		2B39B06423F04981006DA684 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06323F04981006DA684 /* App.swift */; };
-		2B66741823F2E65000248B89 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66741723F2E65000248B89 /* AppDetailView.swift */; };
+		2B66741D23F57FCE00248B89 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66741C23F57FCE00248B89 /* TextView.swift */; };
 		2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238823F18B690004C118 /* AsyncOperation.swift */; };
 		2B6B238E23F19A2F0004C118 /* MV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238D23F19A2F0004C118 /* MV.swift */; };
 /* End PBXBuildFile section */
@@ -87,7 +87,7 @@
 		2B39B05F23F008A1006DA684 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		2B39B06123F00F1A006DA684 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 		2B39B06323F04981006DA684 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		2B66741723F2E65000248B89 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
+		2B66741C23F57FCE00248B89 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		2B6B238823F18B690004C118 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		2B6B238D23F19A2F0004C118 /* MV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				2B66741B23F44A6F00248B89 /* Common */,
-				2B66741723F2E65000248B89 /* AppDetailView.swift */,
 				2B39B03A23EFF9E9006DA684 /* DeviceDetailView.swift */,
 				2B39B03B23EFF9E9006DA684 /* DevicesView.swift */,
 				2B39B03C23EFF9E9006DA684 /* MainView.swift */,
@@ -234,6 +233,7 @@
 			children = (
 				2B39B06123F00F1A006DA684 /* ViewBuilder.swift */,
 				2B39B05F23F008A1006DA684 /* TooltipView.swift */,
+				2B66741C23F57FCE00248B89 /* TextView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -389,7 +389,6 @@
 				2B39B05223EFF9E9006DA684 /* Reducer.swift in Sources */,
 				2B39B05623EFF9E9006DA684 /* Runtime.swift in Sources */,
 				2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */,
-				2B66741823F2E65000248B89 /* AppDetailView.swift in Sources */,
 				2B39B06423F04981006DA684 /* App.swift in Sources */,
 				2B39B05A23EFF9E9006DA684 /* Device.swift in Sources */,
 				2B39B00B23EFF93F006DA684 /* AppDelegate.swift in Sources */,
@@ -398,6 +397,7 @@
 				2B39B05B23EFF9E9006DA684 /* DeviceType.swift in Sources */,
 				2B39B05723EFF9E9006DA684 /* Xcrun.swift in Sources */,
 				2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */,
+				2B66741D23F57FCE00248B89 /* TextView.swift in Sources */,
 				2B6B238E23F19A2F0004C118 /* MV.swift in Sources */,
 				2B39B05523EFF9E9006DA684 /* Pair.swift in Sources */,
 			);
