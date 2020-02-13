@@ -3,6 +3,9 @@
 
 # Simulator Control
 
+![Xcode](https://img.shields.io/badge/Xcode-11.4-blue.svg)
+![macOS](https://img.shields.io/badge/macOS-10.15-orange.svg)
+
 ## Feature
 
 - [x] boot/shutdown
