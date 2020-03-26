@@ -53,7 +53,7 @@ struct InstalledAppView: View {
         let label = selected ?? apps.first!
 
         return VStack(alignment: .leading, spacing: 8) {
-            Text("Installed Apps").font(.headline)
+            Text("Installed Apps").font(.subheadline)
 
             MenuButton(label.bundleDisplayName) {
                 ForEach(apps, id: \.bundleIdentifier) { app in
@@ -108,7 +108,7 @@ struct DeviceDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text(selected.ext.device.name)
-                            .font(.title)
+                            .font(.headline)
                             .multilineTextAlignment(.leading)
 
                         Spacer()

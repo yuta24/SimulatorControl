@@ -35,7 +35,12 @@ extension Xcrun {
 
             switch execute(process) {
             case .success(let data):
-                return try? JSONDecoder().decode(SimCtlList.self, from: data)
+                do {
+                    return try JSONDecoder().decode(SimCtlList.self, from: data)
+                } catch let error {
+                    debugPrint(error)
+                    return .none
+                }
             case .failure(let error):
                 debugPrint(error)
                 return nil

@@ -20,7 +20,7 @@ extension Xcrun {
         let logPath: String
         let udid: String
         let isAvailable: Bool
-        let deviceTypeIdentifier: String
+        let deviceTypeIdentifier: String?
         let state: State
         let name: String
 
