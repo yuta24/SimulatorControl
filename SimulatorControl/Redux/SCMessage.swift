@@ -22,7 +22,8 @@ enum SCMessage {
     case fetch
     case fetched(Xcrun.SimCtlList)
     case select(DeviceExt)
-    case setAppearance(Xcrun.Appearance)
+    case setAppearance(String, Xcrun.Appearance)
+    case toggleAppearance(String)
 
     case sendPush(Xcrun.Device, App, String)
 }

@@ -197,7 +197,7 @@ struct DeviceDetailView: View {
                                 Button("Toggle") {
                                     var appearance = selected.appearance
                                     appearance.toggle()
-                                    self.store.send(.setAppearance(appearance))
+                                    self.store.send(.setAppearance(selected.ext.device.udid, appearance))
                                 }
                             }
                         }

@@ -103,15 +103,25 @@ func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
 
         return []
 
-    case .setAppearance(let appearance):
-        guard let ext = store.state.deviceDetail?.ext else {
-            return []
-        }
+    case .setAppearance(let udid, let appearance):
 
-        xcrun.setAppearance(appearance: appearance.rawValue, to: ext.device.udid)
+        xcrun.setAppearance(appearance: appearance.rawValue, to: udid)
         state.deviceDetail?.appearance = appearance
 
         return []
+
+    case .toggleAppearance(let udid):
+
+        var appearance = (xcrun.appearance(udid: udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
+                    .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
+
+        appearance.toggle()
+
+        return [
+            .sync(work: { () -> SCMessage in
+                .setAppearance(udid, appearance)
+            })
+        ]
 
     case .sendPush(let device, let app, let apns):
         xcrun.sendPush(udid: device.udid, bundleIdentifier: app.bundleIdentifier, apns: apns)
