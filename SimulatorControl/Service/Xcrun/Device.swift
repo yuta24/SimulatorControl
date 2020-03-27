@@ -13,6 +13,14 @@ extension Xcrun {
         enum State: String, Decodable {
             case booted = "Booted"
             case shutdown = "Shutdown"
+
+            var booting: Bool {
+                if case .booted = self {
+                    return true
+                } else {
+                    return false
+                }
+            }
         }
 
         let availabilityError: String?
