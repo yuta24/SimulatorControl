@@ -40,11 +40,12 @@ struct DevicesView: View {
                             .fixedSize()
                     }
 
-                    Text("\(ext.device.name)").onTapGesture {
-                        self.store.send(.select(ext))
-                    }
+                    Text("\(ext.device.name)")
 
                     Spacer()
+                }
+                .onTapGesture {
+                    self.store.send(.select(ext))
                 }
             }
             .listStyle(SidebarListStyle())
