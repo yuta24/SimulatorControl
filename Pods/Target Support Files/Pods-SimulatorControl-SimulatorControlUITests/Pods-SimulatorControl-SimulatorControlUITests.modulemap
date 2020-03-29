@@ -1,0 +1,6 @@
+framework module Pods_SimulatorControl_SimulatorControlUITests {
+  umbrella header "Pods-SimulatorControl-SimulatorControlUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

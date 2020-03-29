@@ -9,6 +9,8 @@
 import Cocoa
 import SwiftUI
 import Combine
+import FirebaseCore
+import FirebaseCrashlytics
 
 
 @NSApplicationMain
@@ -21,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        FirebaseApp.configure()
+
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "Simulator"
 
