@@ -6,8 +6,7 @@ target 'SimulatorControl' do
   use_frameworks!
 
   # Pods for SimulatorControl
-  pod 'FirebaseCore'
-  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Crashlytics', :configurations => ['Debug']
 
   target 'SimulatorControlTests' do
     inherit! :search_paths

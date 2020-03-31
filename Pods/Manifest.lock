@@ -47,7 +47,6 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Crashlytics
-  - FirebaseCore
 
 SPEC REPOS:
   trunk:
@@ -78,6 +77,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: 3c0f2d14ee743556df3cb54f2876d77fc2fb6f33
+PODFILE CHECKSUM: 6a5ecca67a105ef10bc395e3ac31abdcc059ae42
 
 COCOAPODS: 1.9.1
