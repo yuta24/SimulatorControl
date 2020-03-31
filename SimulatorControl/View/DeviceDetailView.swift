@@ -34,10 +34,10 @@ struct ControlAppView: View {
             .padding()
             .tabItem({ Text("Send Push") })
 
-            HStack {
-                Text("")
-            }
-            .tabItem({ Text("Edit Defaults") })
+//            HStack {
+//                Text("")
+//            }
+//            .tabItem({ Text("Edit Defaults") })
         }
         .frame(height: 400)
     }
