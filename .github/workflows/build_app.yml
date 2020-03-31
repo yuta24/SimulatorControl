@@ -1,18 +1,14 @@
-name: CI
+name: build_app
 
-on:
-  push: {}
-  pull_request: {}
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: macOS-latest
     name: Xcode ${{ matrix.xcode }}
     strategy:
       matrix:
         xcode: ["11.4"]
-
     steps:
     - uses: actions/checkout@v2
     - name: Setup Xcode
