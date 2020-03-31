@@ -26,4 +26,4 @@ jobs:
       env:
         SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
     - name: Build
-      run: xcodebuild -workspace SimulatorControl.xcworkspace -scheme SimulatorControl
+      run: ./scripts/build.sh
