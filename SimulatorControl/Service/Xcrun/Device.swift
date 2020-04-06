@@ -23,14 +23,14 @@ extension Xcrun {
             }
         }
 
+        let state: State
+        let isAvailable: Bool
+        let name: String
+        let udid: String
         let availabilityError: String?
         let dataPath: String
         let logPath: String
-        let udid: String
-        let isAvailable: Bool
         let deviceTypeIdentifier: String?
-        let state: State
-        let name: String
 
         var dataPathUrl: URL {
             URL(fileURLWithPath: dataPath.replacingOccurrences(of: "\\", with: ""))
