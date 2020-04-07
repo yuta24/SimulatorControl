@@ -128,7 +128,7 @@ struct DeviceDetailView: View {
 
                     if selected.ext.runtime != nil {
                         HStack {
-                            Text("\(selected.ext.runtime!.name) (\(selected.ext.runtime!.buildversion))")
+                            Text("\(selected.ext.runtime!.name ?? "") (\(selected.ext.runtime!.buildversion ?? ""))")
 
                             Spacer()
                         }
@@ -147,19 +147,19 @@ struct DeviceDetailView: View {
                             .multilineTextAlignment(.leading)
                     }
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Data").font(.caption).foregroundColor(.secondary)
-                        Text("\(selected.ext.device.dataPath)").onTapGesture {
-                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.dataPathUrl])
-                        }
-                    }
+//                    VStack(alignment: .leading, spacing: 4) {
+//                        Text("Data").font(.caption).foregroundColor(.secondary)
+//                        Text("\(selected.ext.device.dataPath)").onTapGesture {
+//                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.dataPathUrl])
+//                        }
+//                    }
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Log").font(.caption).foregroundColor(.secondary)
-                        Text("\(selected.ext.device.logPath)").onTapGesture {
-                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.logPathUrl])
-                        }
-                    }
+//                    VStack(alignment: .leading, spacing: 4) {
+//                        Text("Log").font(.caption).foregroundColor(.secondary)
+//                        Text("\(selected.ext.device.logPath)").onTapGesture {
+//                            NSWorkspace.shared.activateFileViewerSelecting([selected.ext.device.logPathUrl])
+//                        }
+//                    }
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("State").font(.caption).foregroundColor(.secondary)

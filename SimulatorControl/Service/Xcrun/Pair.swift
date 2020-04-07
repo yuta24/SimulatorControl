@@ -11,13 +11,13 @@ import Foundation
 extension Xcrun {
     struct Pair: Decodable {
         struct Device: Decodable {
-            let name: String
-            let udid: String
-            let state: String
+            let name: String?
+            let udid: String?
+            let state: String?
         }
 
-        let watch: Device
-        let phone: Device
-        let state: String
+        let watch: Device?
+        let phone: Device?
+        let state: String?
     }
 }

@@ -24,19 +24,19 @@ extension Xcrun {
         }
 
         let state: State
-        let isAvailable: Bool
+        let isAvailable: Bool?
         let name: String
         let udid: String
         let availabilityError: String?
-        let dataPath: String
-        let logPath: String
+        let dataPath: String?
+        let logPath: String?
         let deviceTypeIdentifier: String?
 
-        var dataPathUrl: URL {
-            URL(fileURLWithPath: dataPath.replacingOccurrences(of: "\\", with: ""))
+        var dataPathUrl: URL? {
+            (dataPath?.replacingOccurrences(of: "\\", with: "")).flatMap(URL.init(string:))
         }
-        var logPathUrl: URL {
-            URL(fileURLWithPath: logPath.replacingOccurrences(of: "\\", with: ""))
+        var logPathUrl: URL? {
+            (logPath?.replacingOccurrences(of: "\\", with: "")).flatMap(URL.init(string:))
         }
     }
 }

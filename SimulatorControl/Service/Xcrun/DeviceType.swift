@@ -10,9 +10,9 @@ import Foundation
 
 extension Xcrun {
     struct DeviceType: Decodable {
-        let name: String
-        let bundlePath: String
-        let identifier: String
+        let name: String?
+        let bundlePath: String?
+        let identifier: String?
         let minRuntimeVersion: Int?
         let maxRuntimeVersion: Int?
         let productFamily: String?

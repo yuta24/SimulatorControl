@@ -10,12 +10,12 @@ import Foundation
 
 extension Xcrun {
     struct Runtime: Decodable {
-        let version: String
-        let bundlePath: String
-        let isAvailable: Bool
-        let name: String
-        let identifier: String
-        let buildversion: String
+        let version: String?
+        let bundlePath: String?
+        let isAvailable: Bool?
+        let name: String?
+        let identifier: String?
+        let buildversion: String?
         let runtimeRoot: String?
     }
 }
