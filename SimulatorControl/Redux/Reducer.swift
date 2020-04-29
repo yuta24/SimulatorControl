@@ -58,7 +58,7 @@ func reducer( state: inout State, message: Message) -> [Effect<Message>] {
     case .stopRecording:
         if let (operation, file) = state.deviceDetail?.recording {
             operation.cancel()
-            MV(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true).execute()
+            CLI.Move(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true).execute()
         }
         state.deviceDetail?.recording = .none
 

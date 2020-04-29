@@ -36,7 +36,8 @@
 		2B39B06423F04981006DA684 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06323F04981006DA684 /* App.swift */; };
 		2B66741D23F57FCE00248B89 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66741C23F57FCE00248B89 /* TextView.swift */; };
 		2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238823F18B690004C118 /* AsyncOperation.swift */; };
-		2B6B238E23F19A2F0004C118 /* MV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238D23F19A2F0004C118 /* MV.swift */; };
+		2B6B238E23F19A2F0004C118 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238D23F19A2F0004C118 /* Move.swift */; };
+		2B82A3432459C98C00714B7F /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82A3422459C98C00714B7F /* CLI.swift */; };
 		DD410A4977EBF03B934FEF18 /* Pods_SimulatorControl_SimulatorControlUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834A8A6FC648A76F89ED068A /* Pods_SimulatorControl_SimulatorControlUITests.framework */; };
 		F8766E7B84FEA7607FF3AFB0 /* Pods_SimulatorControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5858CA5955734832E04A8AE /* Pods_SimulatorControl.framework */; };
 /* End PBXBuildFile section */
@@ -94,7 +95,8 @@
 		2B39B06323F04981006DA684 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2B66741C23F57FCE00248B89 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		2B6B238823F18B690004C118 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
-		2B6B238D23F19A2F0004C118 /* MV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MV.swift; sourceTree = "<group>"; };
+		2B6B238D23F19A2F0004C118 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		2B82A3422459C98C00714B7F /* CLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
 		3AC6B016BC0B6C019CB262EF /* Pods-SimulatorControl-SimulatorControlUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorControl-SimulatorControlUITests.debug.xcconfig"; path = "Target Support Files/Pods-SimulatorControl-SimulatorControlUITests/Pods-SimulatorControl-SimulatorControlUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D73129E0EEE15376F1AE25C /* Pods-SimulatorControl-SimulatorControlUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorControl-SimulatorControlUITests.release.xcconfig"; path = "Target Support Files/Pods-SimulatorControl-SimulatorControlUITests/Pods-SimulatorControl-SimulatorControlUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73DEEE5450841E034C408DB8 /* Pods-SimulatorControlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimulatorControlTests.release.xcconfig"; path = "Target Support Files/Pods-SimulatorControlTests/Pods-SimulatorControlTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,7 +263,8 @@
 		2B6B238A23F199D00004C118 /* CLI */ = {
 			isa = PBXGroup;
 			children = (
-				2B6B238D23F19A2F0004C118 /* MV.swift */,
+				2B6B238D23F19A2F0004C118 /* Move.swift */,
+				2B82A3422459C98C00714B7F /* CLI.swift */,
 			);
 			path = CLI;
 			sourceTree = "<group>";
@@ -570,7 +573,8 @@
 				2B39B05723EFF9E9006DA684 /* Xcrun.swift in Sources */,
 				2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */,
 				2B66741D23F57FCE00248B89 /* TextView.swift in Sources */,
-				2B6B238E23F19A2F0004C118 /* MV.swift in Sources */,
+				2B82A3432459C98C00714B7F /* CLI.swift in Sources */,
+				2B6B238E23F19A2F0004C118 /* Move.swift in Sources */,
 				2B39B05523EFF9E9006DA684 /* Pair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
