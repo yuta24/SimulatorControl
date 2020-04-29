@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ControlAppView: View {
-    @State private var apns: String = ""
+    @SwiftUI.State private var apns: String = ""
 
     var push: (String) -> Void
 
@@ -47,7 +47,7 @@ struct InstalledAppView: View {
     var apps: [App]
     var push: (App, String) -> Void
 
-    @State private var selected: App?
+    @SwiftUI.State private var selected: App?
 
     var body: some View {
         let label = selected ?? apps.first!
@@ -95,7 +95,7 @@ struct InstalledAppView: View {
 }
 
 struct DeviceDetailView: View {
-    @ObservedObject var store: Store<SCState, SCMessage>
+    @SwiftUI.ObservedObject var store: Store<State, SCMessage>
 
     var body: some View {
         guard let selected = store.state.deviceDetail else {
@@ -217,7 +217,7 @@ struct DeviceDetailView: View {
         )
     }
 
-    init(store: Store<SCState, SCMessage>) {
+    init(store: Store<State, SCMessage>) {
         self.store = store
     }
 }

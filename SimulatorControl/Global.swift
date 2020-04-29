@@ -9,4 +9,4 @@
 import Foundation
 
 let xcrun = Xcrun.Service()
-let store = Store<SCState, SCMessage>(initial: .empty, reducer: reducer)
+let store = Store<State, SCMessage>(initial: .empty, reducer: reducer)

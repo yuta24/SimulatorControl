@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct DevicesView: View {
-    @ObservedObject var store: Store<SCState, SCMessage>
-    @State var showBootedOnly: Bool = false
+    @SwiftUI.ObservedObject var store: Store<State, SCMessage>
+    @SwiftUI.State var showBootedOnly: Bool = false
 
     var body: some View {
         let exts: [DeviceExt] = {

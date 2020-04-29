@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-func reducer( state: inout SCState, message: SCMessage) -> [Effect<SCMessage>] {
+func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
     switch message {
 
     case .prepare:

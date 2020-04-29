@@ -37,8 +37,8 @@ struct AppDetialState {
     var appExt: AppExt
 }
 
-struct SCState {
-    static var empty: SCState {
+struct State {
+    static var empty: State {
         .init(exts: [], deviceDetail: nil)
     }
 
