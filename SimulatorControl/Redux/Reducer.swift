@@ -9,12 +9,12 @@
 import Foundation
 import Cocoa
 
-func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
+func reducer( state: inout State, message: Message) -> [Effect<Message>] {
     switch message {
 
     case .prepare:
         return [
-            .sync(work: { () -> SCMessage in
+            .sync(work: { () -> Message in
                 .fetch
             })
         ]
@@ -27,7 +27,7 @@ func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
         xcrun.deleteUnavailable()
 
         return [
-            .sync(work: { () -> SCMessage in
+            .sync(work: { () -> Message in
                 .fetch
             })
         ]
@@ -36,7 +36,7 @@ func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
         xcrun.boot(udid: device.udid)
 
         return [
-            .sync(work: { () -> SCMessage in
+            .sync(work: { () -> Message in
                 .fetch
             })
         ]
@@ -45,7 +45,7 @@ func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
         xcrun.shutdown(udid: device.udid)
 
         return [
-            .sync(work: { () -> SCMessage in
+            .sync(work: { () -> Message in
                 .fetch
             })
         ]
@@ -67,7 +67,7 @@ func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
     case .fetch:
         if let list = xcrun.list() {
             return [
-                .sync(work: { () -> SCMessage in
+                .sync(work: { () -> Message in
                     .fetched(list)
                 })
             ]
@@ -118,7 +118,7 @@ func reducer( state: inout State, message: SCMessage) -> [Effect<SCMessage>] {
         appearance.toggle()
 
         return [
-            .sync(work: { () -> SCMessage in
+            .sync(work: { () -> Message in
                 .setAppearance(udid, appearance)
             })
         ]

@@ -95,7 +95,7 @@ struct InstalledAppView: View {
 }
 
 struct DeviceDetailView: View {
-    @SwiftUI.ObservedObject var store: Store<State, SCMessage>
+    @SwiftUI.ObservedObject var store: Store<State, Message>
 
     var body: some View {
         guard let selected = store.state.deviceDetail else {
@@ -217,7 +217,7 @@ struct DeviceDetailView: View {
         )
     }
 
-    init(store: Store<State, SCMessage>) {
+    init(store: Store<State, Message>) {
         self.store = store
     }
 }

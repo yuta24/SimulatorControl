@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DevicesView: View {
-    @SwiftUI.ObservedObject var store: Store<State, SCMessage>
+    @SwiftUI.ObservedObject var store: Store<State, Message>
     @SwiftUI.State var showBootedOnly: Bool = false
 
     var body: some View {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SCMessage {
+enum Message {
     case prepare
     case terminate
 

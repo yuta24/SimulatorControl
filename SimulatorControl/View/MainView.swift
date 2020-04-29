@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var store: Store<State, SCMessage>
+    @ObservedObject var store: Store<State, Message>
 
     var body: some View {
         NavigationView {
