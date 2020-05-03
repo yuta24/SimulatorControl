@@ -10,9 +10,12 @@ jobs:
       matrix:
         xcode: ["11.4"]
     steps:
-    - uses: fusion-engineering/setup-git-credentials@v2
+    - uses: webfactory/ssh-agent@v0.2.0
       with:
-        credentials: ${{secrets.GIT_CREDENTIALS}}
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: (WORKAROUND) Use private swift package manager
+      run: |
+        for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
     - uses: actions/checkout@v2
     - name: Setup Xcode
       run: |
