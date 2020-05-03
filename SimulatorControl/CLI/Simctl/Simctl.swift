@@ -24,9 +24,7 @@ struct ProcessSubscription: Subscription {
 
 struct ProcessPublisher: Publisher {
     typealias Output = Data
-    struct Failure: Error {
-        let content: String
-    }
+    typealias Failure = Never
 
     private let operation: Operation
     private let outputPipe: Pipe
@@ -48,14 +46,9 @@ struct ProcessPublisher: Publisher {
     func receive<S>(subscriber: S) where S : Subscriber, Self.Failure == S.Failure, Self.Output == S.Input {
         operation.completionBlock = {
             let output = self.outputPipe.fileHandleForReading.readDataToEndOfFile()
-            let error = self.errorPipe.fileHandleForReading.readDataToEndOfFile()
 
-            if !output.isEmpty {
-                _ = subscriber.receive(output)
-                subscriber.receive(completion: .finished)
-            } else {
-                subscriber.receive(completion: .failure(Failure(content: String(data: error, encoding: .utf8)!)))
-            }
+            _ = subscriber.receive(output)
+            subscriber.receive(completion: .finished)
         }
 
         let subscription = ProcessSubscription(combineIdentifier: .init(), operatoin: operation)
@@ -75,31 +68,10 @@ extension Process {
 extension CLI {
     enum Simctl {
         enum Error: Swift.Error {
-            case process(String)
+            case process
             case writeToFile(String)
             case parse(Swift.Error)
             case unknown
-        }
-
-        private static func run(_ process: Process) -> Result<Data, Error> {
-            let inpipe  = Pipe()
-            let outpipe = Pipe()
-            let errpipe = Pipe()
-
-            process.standardOutput = inpipe
-            process.standardOutput = outpipe
-            process.standardError = errpipe
-
-            try! process.run()
-
-            let output = outpipe.fileHandleForReading.readDataToEndOfFile()
-            let err = errpipe.fileHandleForReading.readDataToEndOfFile()
-
-            if !output.isEmpty {
-                return .success(output)
-            } else {
-                return .failure(.process(String(data: err, encoding: .utf8)!))
-            }
         }
 
         struct Boot {
@@ -108,7 +80,7 @@ extension CLI {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["boot", udid]))
                     .map { _ in () }
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -119,7 +91,7 @@ extension CLI {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["shutdown", "boot", udid]))
                     .map { _ in () }
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -127,7 +99,7 @@ extension CLI {
         struct List {
             func execute() -> AnyPublisher<SimCtlList, Error> {
                 return ProcessPublisher(Process.simctl(["list", "-j"]))
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .tryMap { try JSONDecoder().decode(SimCtlList.self, from: $0) }
                     .mapError { Error.parse($0) }
                     .eraseToAnyPublisher()
@@ -138,7 +110,7 @@ extension CLI {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["delete", "unavailable"]))
                     .map { _ in () }
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -150,7 +122,7 @@ extension CLI {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["io", "\(udid)", "recordVideo", "--force", "\(path.absoluteString)"]))
                     .map { _ in () }
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -158,10 +130,11 @@ extension CLI {
         struct FetchAppearance {
             let udid: String
 
-            func execute() -> AnyPublisher<String?, Error> {
+            func execute() -> AnyPublisher<Appearance, Error> {
                 return ProcessPublisher(Process.simctl(["ui", "\(udid)", "appearance"]))
-                    .map { String(data: $0, encoding: .utf8) }
-                    .mapError { Error.process($0.content) }
+                    .map { String(data: $0, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) }
+                    .map { $0.flatMap(Appearance.init(rawValue:)) ?? .unknown }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -173,7 +146,7 @@ extension CLI {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["ui", "\(udid)", "appearance", "\(appearance.rawValue)"]))
                     .map { _ in () }
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
         }
@@ -183,7 +156,7 @@ extension CLI {
 
             func execute() -> AnyPublisher<[String: App], Error> {
                 return ProcessPublisher(Process.simctl(["listapps", "\(udid)"]))
-                    .mapError { Error.process($0.content) }
+                    .setFailureType(to: Error.self)
                     .tryMap { try PropertyListDecoder().decode([String: App].self, from: $0) }
                     .mapError { Error.parse($0) }
                     .eraseToAnyPublisher()
@@ -211,7 +184,7 @@ extension CLI {
                 .mapError { _ in Error.unknown }
                 .flatMap { _ in
                     ProcessPublisher(Process.simctl(["push", "\(self.udid)", "\(self.bundleIdentifier)", "\(path)"]))
-                        .mapError { Error.process($0.content) }
+                        .setFailureType(to: Error.self)
                 }
                 .map { _ in () }
                 .eraseToAnyPublisher()

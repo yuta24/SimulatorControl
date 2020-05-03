@@ -63,10 +63,8 @@ let executor = Executor<State, Event, Mutate> { state, event -> AnyPublisher<Exe
 
     case .select(let ext):
         return CLI.Simctl.FetchAppearance(udid: ext.device.udid).execute()
-            .map { $0?.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .map { $0.flatMap(CLI.Simctl.Appearance.init(rawValue:)) }
             .zip(CLI.Simctl.FetchApps(udid: ext.device.udid).execute())
-            .map { .selected(ext, $0.0 ?? .unknown, $0.1) }
+            .map { .selected(ext, $0.0, $0.1) }
             .catch { Just(.handleError($0)) }
             .map { .end($0) }
             .eraseToAnyPublisher()
@@ -78,9 +76,12 @@ let executor = Executor<State, Event, Mutate> { state, event -> AnyPublisher<Exe
             .map { .end($0) }
             .eraseToAnyPublisher()
 
-    case .toggleAppearance(let uuid):
-        // TODO: Impl
-        return Just(.end(.none))
+    case .toggleAppearance(let udid):
+        var appearance = state.deviceDetail?.appearance ?? .unknown
+
+        appearance.toggle()
+
+        return Just(.next(.updateAppearance(udid, appearance)))
             .eraseToAnyPublisher()
 
     case .sendPush(let device, let app, let uuid):
