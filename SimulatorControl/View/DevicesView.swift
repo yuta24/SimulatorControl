@@ -7,9 +7,10 @@
 //
 
 import SwiftUI
+import Helix
 
 struct DevicesView: View {
-    @SwiftUI.ObservedObject var store: Store<State, Message>
+    @SwiftUI.ObservedObject var store: Store<State, Event, Mutate>
     @SwiftUI.State var showBootedOnly: Bool = false
 
     var body: some View {
@@ -45,7 +46,7 @@ struct DevicesView: View {
                     Spacer()
                 }
                 .onTapGesture {
-                    self.store.send(.select(ext))
+                    self.store.handle(.select(ext))
                 }
             }
             .listStyle(SidebarListStyle())

@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .store(in: &cancellable)
 
         // Create the SwiftUI view that provides the window contents.
-        store.send(.prepare)
+        store.handle(.prepare)
 
         let contentView = MainView(store: store)
 
@@ -86,11 +86,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction private func refresh(_ sender: AnyObject) {
-        store.send(.fetch)
+        store.handle(.fetch)
     }
 
     @IBAction private func deleteUnavailable(_ sender: AnyObject) {
-        store.send(.deleteUnavailable)
+        store.handle(.deleteUnavailable)
     }
 
     @objc private func onToggleAppearance(_ sender: NSMenuItem) {
@@ -98,6 +98,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
 
-        store.send(.toggleAppearance(ext.device.udid))
+        store.handle(.toggleAppearance(ext.device.udid))
     }
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cacao",
+        "repositoryURL": "https://github.com/yuta24/Cacao.git",
+        "state": {
+          "branch": "master",
+          "revision": "d2dbd32c6cf273bff13ade6d300bef7d3361ef9d",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -7,73 +7,11 @@
 //
 
 import Foundation
-import Cocoa
+import Helix
 
-func reducer( state: inout State, message: Message) -> [Effect<Message>] {
-    switch message {
+let reducer = Reducer<State, Mutate> { state, mutate in
 
-    case .prepare:
-        return [
-            .sync(work: { () -> Message in
-                .fetch
-            })
-        ]
-
-    case .terminate:
-
-        return []
-
-    case .deleteUnavailable:
-        xcrun.deleteUnavailable()
-
-        return [
-            .sync(work: { () -> Message in
-                .fetch
-            })
-        ]
-
-    case .boot(let device):
-        xcrun.boot(udid: device.udid)
-
-        return [
-            .sync(work: { () -> Message in
-                .fetch
-            })
-        ]
-
-    case .shutdown(let device):
-        xcrun.shutdown(udid: device.udid)
-
-        return [
-            .sync(work: { () -> Message in
-                .fetch
-            })
-        ]
-
-    case .startRecording(let device):
-        state.deviceDetail?.recording = xcrun.startRecording(udid: device.udid)
-
-        return []
-
-    case .stopRecording:
-        if let (operation, file) = state.deviceDetail?.recording {
-            operation.cancel()
-            CLI.Move(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: file, force: true).execute()
-        }
-        state.deviceDetail?.recording = .none
-
-        return []
-
-    case .fetch:
-        if let list = xcrun.list() {
-            return [
-                .sync(work: { () -> Message in
-                    .fetched(list)
-                })
-            ]
-        } else {
-            return []
-        }
+    switch mutate {
 
     case .fetched(let list):
         state.exts = {
@@ -89,43 +27,17 @@ func reducer( state: inout State, message: Message) -> [Effect<Message>] {
             }
         }()
 
-        return []
+    case .selected(let ext, let appearance, let apps):
+        let apps = apps.values.filter({ $0.applicationType == .user })
+        state.deviceDetail = .init(ext: ext, appearance: appearance, apps: apps, recording: .none)
 
-    case .select(let ext):
-        if let (operation, _) = state.deviceDetail?.recording {
-            operation.cancel()
-        }
-
-        let appearance = (xcrun.appearance(udid: ext.device.udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
-                    .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
-        let apps = xcrun.listApps(udid: ext.device.udid)
-        state.deviceDetail = .init(ext: ext, appearance: appearance, apps: apps.values.filter({ $0.applicationType == .user }), recording: .none)
-
-        return []
-
-    case .setAppearance(let udid, let appearance):
-
-        xcrun.setAppearance(appearance: appearance.rawValue, to: udid)
+    case .appearanceUpdated(_, let appearance):
         state.deviceDetail?.appearance = appearance
 
-        return []
+    case .handleError(let error):
+        // TODO: Impl
+        break
 
-    case .toggleAppearance(let udid):
-
-        var appearance = (xcrun.appearance(udid: udid)?.trimmingCharacters(in: .whitespacesAndNewlines))
-                    .flatMap(Xcrun.Appearance.init(rawValue:)) ?? .unknown
-
-        appearance.toggle()
-
-        return [
-            .sync(work: { () -> Message in
-                .setAppearance(udid, appearance)
-            })
-        ]
-
-    case .sendPush(let device, let app, let apns):
-        xcrun.sendPush(udid: device.udid, bundleIdentifier: app.bundleIdentifier, apns: apns)
-
-        return []
     }
+
 }

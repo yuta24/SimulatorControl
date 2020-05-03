@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Xcrun {
+extension CLI.Simctl {
     enum Appearance: String {
         case light
         case dark
@@ -17,7 +17,7 @@ extension Xcrun {
     }
 }
 
-extension Xcrun.Appearance {
+extension CLI.Simctl.Appearance {
     var isSupported: Bool {
         switch self {
         case .unsupported, .unknown:

@@ -7,6 +7,6 @@
 //
 
 import Foundation
+import Helix
 
-let xcrun = Xcrun.Service()
-let store = Store<State, Message>(initial: .empty, reducer: reducer)
+let store = Store<State, Event, Mutate>(state: .empty, reducer: reducer, executor: executor)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Xcrun {
+extension CLI.Simctl {
     struct Device: Equatable, Decodable {
         enum State: String, Decodable {
             case booted = "Booted"

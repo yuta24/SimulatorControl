@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Xcrun {
+extension CLI.Simctl {
     struct SimCtlList: Decodable {
         let devicetypes: [DeviceType]
         let runtimes: [Runtime]

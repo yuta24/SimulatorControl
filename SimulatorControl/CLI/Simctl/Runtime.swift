@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Xcrun {
+extension CLI.Simctl {
     struct Runtime: Decodable {
         let version: String?
         let bundlePath: String?

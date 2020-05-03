@@ -7,9 +7,10 @@
 //
 
 import SwiftUI
+import Helix
 
 struct MainView: View {
-    @ObservedObject var store: Store<State, Message>
+    @ObservedObject var store: Store<State, Event, Mutate>
 
     var body: some View {
         NavigationView {
@@ -22,6 +23,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(store: .init(initial: .empty, reducer: { _, _ in [] }))
+        MainView(store: .init(state: .empty, reducer: reducer, executor: executor))
     }
 }

@@ -9,77 +9,45 @@
 import Foundation
 
 class AsyncOperation: Operation {
-    var cancelBlock: () -> Void = {}
+    override var isFinished: Bool {
+        set {
+            willChangeValue(forKey: "isFinished")
+            _isFinished = newValue
+            didChangeValue(forKey: "isFinished")
+        }
 
-    private let lockQueue = DispatchQueue(label: "asyncOperation", attributes: .concurrent)
-    private let block: () -> Void
+        get {
+            return _isFinished
+        }
+    }
 
-    init(block: @escaping () -> Void) {
-        self.block = block
+    override var isExecuting: Bool {
+        set {
+            willChangeValue(forKey: "isExecuting")
+            _isExecuting = newValue
+            didChangeValue(forKey: "isExecuting")
+        }
+
+        get {
+            return _isExecuting
+        }
     }
 
     override var isAsynchronous: Bool {
         return true
     }
 
+    private let block: () -> Void
     private var _isExecuting: Bool = false
-    override private(set) var isExecuting: Bool {
-        get {
-            return lockQueue.sync { () -> Bool in
-                return _isExecuting
-            }
-        }
-        set {
-            willChangeValue(forKey: "isExecuting")
-            lockQueue.sync(flags: [.barrier]) {
-                _isExecuting = newValue
-            }
-            didChangeValue(forKey: "isExecuting")
-        }
-    }
-
     private var _isFinished: Bool = false
-    override private(set) var isFinished: Bool {
-        get {
-            return lockQueue.sync { () -> Bool in
-                return _isFinished
-            }
-        }
-        set {
-            willChangeValue(forKey: "isFinished")
-            lockQueue.sync(flags: [.barrier]) {
-                _isFinished = newValue
-            }
-            didChangeValue(forKey: "isFinished")
-        }
+
+    init(_ block: @escaping () -> Void) {
+        self.block = block
     }
 
     override func start() {
-        guard !isCancelled else {
-            finish()
-            return
-        }
-
-        isFinished = false
         isExecuting = true
-        main()
-    }
-
-    override func main() {
-        lockQueue.async {
-            self.block()
-        }
-    }
-
-    override func cancel() {
-        cancelBlock()
-    }
-
-    func finish() {
-        if isCancelled {
-            cancelBlock()
-        }
-
+        block()
         isExecuting = false
         isFinished = true
     }

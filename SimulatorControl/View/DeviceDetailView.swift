@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Helix
 
 struct ControlAppView: View {
     @SwiftUI.State private var apns: String = ""
@@ -44,10 +45,10 @@ struct ControlAppView: View {
 }
 
 struct InstalledAppView: View {
-    var apps: [App]
-    var push: (App, String) -> Void
+    var apps: [CLI.Simctl.App]
+    var push: (CLI.Simctl.App, String) -> Void
 
-    @SwiftUI.State private var selected: App?
+    @SwiftUI.State private var selected: CLI.Simctl.App?
 
     var body: some View {
         let label = selected ?? apps.first!
@@ -95,7 +96,7 @@ struct InstalledAppView: View {
 }
 
 struct DeviceDetailView: View {
-    @SwiftUI.ObservedObject var store: Store<State, Message>
+    @SwiftUI.ObservedObject var store: Store<State, Event, Mutate>
 
     var body: some View {
         guard let selected = store.state.deviceDetail else {
@@ -116,11 +117,11 @@ struct DeviceDetailView: View {
                         if selected.ext.device.state.booting {
                             if selected.recording == nil {
                                 Button("Start recording") {
-                                   self.store.send(.startRecording(selected.ext.device))
+                                    self.store.handle(.startRecording(selected.ext.device))
                                 }
                             } else {
                                 Button("Stop recording") {
-                                    self.store.send(.stopRecording)
+                                    self.store.handle(.stopRecording)
                                 }
                             }
                         }
@@ -174,11 +175,11 @@ struct DeviceDetailView: View {
                                 switch selected.ext.device.state {
                                 case .booted:
                                     return AnyView(Button("Shutdown") {
-                                        self.store.send(.shutdown(selected.ext.device))
+                                        self.store.handle(.shutdown(selected.ext.device))
                                     })
                                 case .shutdown:
                                     return AnyView(Button("Boot") {
-                                        self.store.send(.boot(selected.ext.device))
+                                        self.store.handle(.boot(selected.ext.device))
                                     })
                                 }
                             }
@@ -197,7 +198,7 @@ struct DeviceDetailView: View {
                                 Button("Toggle") {
                                     var appearance = selected.appearance
                                     appearance.toggle()
-                                    self.store.send(.setAppearance(selected.ext.device.udid, appearance))
+                                    self.store.handle(.updateAppearance(selected.ext.device.udid, appearance))
                                 }
                             }
                         }
@@ -207,7 +208,7 @@ struct DeviceDetailView: View {
                         Divider()
 
                         InstalledAppView(apps: selected.apps) { app, apns in
-                            self.store.send(.sendPush(selected.ext.device, app, apns))
+                            self.store.handle(.sendPush(selected.ext.device, app, apns))
                         }
                     }
                 }
@@ -217,7 +218,7 @@ struct DeviceDetailView: View {
         )
     }
 
-    init(store: Store<State, Message>) {
+    init(store: Store<State, Event, Mutate>) {
         self.store = store
     }
 }

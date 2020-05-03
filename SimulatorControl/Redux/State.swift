@@ -1,5 +1,5 @@
 //
-//  SCState.swift
+//  State.swift
 //  SimlatorControl
 //
 //  Created by Yu Tawata on 2020/02/07.
@@ -9,9 +9,9 @@
 import Foundation
 
 struct DeviceExt: Identifiable {
-    var device: Xcrun.Device
-    var deviceType: Xcrun.DeviceType?
-    var runtime: Xcrun.Runtime?
+    var device: CLI.Simctl.Device
+    var deviceType: CLI.Simctl.DeviceType?
+    var runtime: CLI.Simctl.Runtime?
 
     var id: String {
         device.udid
@@ -19,7 +19,7 @@ struct DeviceExt: Identifiable {
 }
 
 struct AppExt: Identifiable {
-    var app: App
+    var app: CLI.Simctl.App
 
     var id: String {
         app.bundleIdentifier
@@ -28,8 +28,8 @@ struct AppExt: Identifiable {
 
 struct DeviceDetailState {
     var ext: DeviceExt
-    var appearance: Xcrun.Appearance
-    var apps: [App]
+    var appearance: CLI.Simctl.Appearance
+    var apps: [CLI.Simctl.App]
     var recording: (Operation, String)?
 }
 

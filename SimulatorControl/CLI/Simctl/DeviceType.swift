@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Xcrun {
+extension CLI.Simctl {
     struct DeviceType: Decodable {
         let name: String?
         let bundlePath: String?
