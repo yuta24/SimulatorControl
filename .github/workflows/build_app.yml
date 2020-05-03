@@ -10,6 +10,9 @@ jobs:
       matrix:
         xcode: ["11.4"]
     steps:
+    - uses: fusion-engineering/setup-git-credentials@v2
+      with:
+        credentials: ${{secrets.GIT_CREDENTIALS}}
     - uses: actions/checkout@v2
     - name: Setup Xcode
       run: |
