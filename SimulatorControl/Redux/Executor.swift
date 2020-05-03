@@ -35,18 +35,36 @@ let executor = Executor<State, Event, Mutate> { state, event -> AnyPublisher<Exe
             .eraseToAnyPublisher()
 
     case .startRecording(let device):
-        // TODO: Impl
-//        return CLI.Simctl.StartRecording(udid: device.udid, path: URL(fileURLWithPath: "/var/tmp/\(device.udid).mp4")).execute()
-//            .map { .next(.fetch) }
-//            .catch { _ in Just(.end(.none)) }
-//            .eraseToAnyPublisher()
-        return Just(.end(.none))
-            .eraseToAnyPublisher()
+        let pathString = "/var/tmp/\(device.udid).mp4"
+        return Deferred {
+            Future<Operation, Never> { callback in
+                let process = Process.simctl(["io", "\(device.udid)", "recordVideo", "--force", "\(pathString)"])
+                let operation = AsyncOperation ({
+                    try! process.run()
+                }) {
+                    process.interrupt()
+                }
+
+                operation.start()
+
+                callback(.success(operation))
+            }
+        }
+        .map { .end(.recording(($0, pathString))) }
+        .eraseToAnyPublisher()
 
     case .stopRecording:
-        // TODO: Impl
-        return Just(.end(.none))
-            .eraseToAnyPublisher()
+        return Deferred {
+            Future<Void, Never> { callback in
+                if let (operation, pathString) = state.deviceDetail?.recording {
+                    operation.cancel()
+                    CLI.Move(target: "\(NSHomeDirectory())/Desktop/simulator_recording.mov", from: pathString, force: true).execute()
+                }
+                callback(.success(()))
+            }
+        }
+        .map { .end(.recorded) }
+        .eraseToAnyPublisher()
 
     case .deleteUnavailable:
         return CLI.Simctl.DeleteUnavailable().execute()

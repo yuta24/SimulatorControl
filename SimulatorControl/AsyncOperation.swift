@@ -37,18 +37,24 @@ class AsyncOperation: Operation {
         return true
     }
 
-    private let block: () -> Void
+    private let executeBlock: () -> Void
+    private let cancelBlock: () -> Void
     private var _isExecuting: Bool = false
     private var _isFinished: Bool = false
 
-    init(_ block: @escaping () -> Void) {
-        self.block = block
+    init(_ executeBlock: @escaping () -> Void, cancelBlock: @escaping () -> Void = {}) {
+        self.executeBlock = executeBlock
+        self.cancelBlock = cancelBlock
     }
 
     override func start() {
         isExecuting = true
-        block()
+        executeBlock()
         isExecuting = false
         isFinished = true
+    }
+
+    override func cancel() {
+        cancelBlock()
     }
 }

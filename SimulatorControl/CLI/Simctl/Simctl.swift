@@ -34,9 +34,11 @@ struct ProcessPublisher: Publisher {
         self.outputPipe = Pipe()
         self.errorPipe = Pipe()
 
-        self.operation = AsyncOperation {
+
+        self.operation = AsyncOperation({
             try! process.run()
             process.waitUntilExit()
+        }) {
         }
 
         process.standardOutput = outputPipe
@@ -109,18 +111,6 @@ extension CLI {
         struct DeleteUnavailable {
             func execute() -> AnyPublisher<Void, Error> {
                 return ProcessPublisher(Process.simctl(["delete", "unavailable"]))
-                    .map { _ in () }
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            }
-        }
-
-        struct StartRecording {
-            let udid: String
-            let path: URL
-
-            func execute() -> AnyPublisher<Void, Error> {
-                return ProcessPublisher(Process.simctl(["io", "\(udid)", "recordVideo", "--force", "\(path.absoluteString)"]))
                     .map { _ in () }
                     .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()

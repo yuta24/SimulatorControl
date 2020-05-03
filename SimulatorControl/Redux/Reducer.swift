@@ -31,6 +31,12 @@ let reducer = Reducer<State, Mutate> { state, mutate in
         let apps = apps.values.filter({ $0.applicationType == .user })
         state.deviceDetail = .init(ext: ext, appearance: appearance, apps: apps, recording: .none)
 
+    case .recording(let operation):
+        state.deviceDetail?.recording = operation
+
+    case .recorded:
+        state.deviceDetail?.recording = .none
+
     case .appearanceUpdated(_, let appearance):
         state.deviceDetail?.appearance = appearance
 
