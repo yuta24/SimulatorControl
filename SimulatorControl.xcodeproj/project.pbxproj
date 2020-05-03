@@ -31,13 +31,13 @@
 		2B39B06223F00F1A006DA684 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06123F00F1A006DA684 /* ViewBuilder.swift */; };
 		2B39B06423F04981006DA684 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39B06323F04981006DA684 /* App.swift */; };
 		2B66741D23F57FCE00248B89 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66741C23F57FCE00248B89 /* TextView.swift */; };
-		2B66B59A245E731D0043AC8C /* Helix in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B599245E731D0043AC8C /* Helix */; };
-		2B66B59B245E731D0043AC8C /* Helix in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B599245E731D0043AC8C /* Helix */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		2B66B59D245E731D0043AC8C /* Cacao in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B59C245E731D0043AC8C /* Cacao */; };
-		2B66B59E245E731D0043AC8C /* Cacao in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B59C245E731D0043AC8C /* Cacao */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2B66B5A1245E74250043AC8C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66B5A0245E74250043AC8C /* Event.swift */; };
 		2B66B5A3245E74340043AC8C /* Mutate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66B5A2245E74340043AC8C /* Mutate.swift */; };
 		2B66B5A5245E74D90043AC8C /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66B5A4245E74D90043AC8C /* Executor.swift */; };
+		2B66B5A8245EFFCC0043AC8C /* Helix in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B5A7245EFFCC0043AC8C /* Helix */; };
+		2B66B5A9245EFFCC0043AC8C /* Helix in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B5A7245EFFCC0043AC8C /* Helix */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2B66B5AB245EFFCC0043AC8C /* Cacao in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B5AA245EFFCC0043AC8C /* Cacao */; };
+		2B66B5AC245EFFCC0043AC8C /* Cacao in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 2B66B5AA245EFFCC0043AC8C /* Cacao */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2B6B238923F18B690004C118 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238823F18B690004C118 /* AsyncOperation.swift */; };
 		2B6B238E23F19A2F0004C118 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B238D23F19A2F0004C118 /* Move.swift */; };
 		2B82A3432459C98C00714B7F /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B82A3422459C98C00714B7F /* CLI.swift */; };
@@ -70,8 +70,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2B66B59E245E731D0043AC8C /* Cacao in Embed Frameworks */,
-				2B66B59B245E731D0043AC8C /* Helix in Embed Frameworks */,
+				2B66B5AC245EFFCC0043AC8C /* Cacao in Embed Frameworks */,
+				2B66B5A9245EFFCC0043AC8C /* Helix in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B66B59D245E731D0043AC8C /* Cacao in Frameworks */,
+				2B66B5AB245EFFCC0043AC8C /* Cacao in Frameworks */,
 				F8766E7B84FEA7607FF3AFB0 /* Pods_SimulatorControl.framework in Frameworks */,
-				2B66B59A245E731D0043AC8C /* Helix in Frameworks */,
+				2B66B5A8245EFFCC0043AC8C /* Helix in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +326,8 @@
 			);
 			name = SimulatorControl;
 			packageProductDependencies = (
-				2B66B599245E731D0043AC8C /* Helix */,
-				2B66B59C245E731D0043AC8C /* Cacao */,
+				2B66B5A7245EFFCC0043AC8C /* Helix */,
+				2B66B5AA245EFFCC0043AC8C /* Cacao */,
 			);
 			productName = SimulatorControl;
 			productReference = 2B39B00723EFF93F006DA684 /* SimulatorControl.app */;
@@ -405,7 +405,7 @@
 			);
 			mainGroup = 2B39AFFE23EFF93F006DA684;
 			packageReferences = (
-				2B66B598245E731D0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */,
+				2B66B5A6245EFFCC0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */,
 			);
 			productRefGroup = 2B39B00823EFF93F006DA684 /* Products */;
 			projectDirPath = "";
@@ -936,9 +936,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2B66B598245E731D0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */ = {
+		2B66B5A6245EFFCC0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yuta24/Cacao.git";
+			repositoryURL = "git@github.com:yuta24/Cacao.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -947,14 +947,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2B66B599245E731D0043AC8C /* Helix */ = {
+		2B66B5A7245EFFCC0043AC8C /* Helix */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B66B598245E731D0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */;
+			package = 2B66B5A6245EFFCC0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */;
 			productName = Helix;
 		};
-		2B66B59C245E731D0043AC8C /* Cacao */ = {
+		2B66B5AA245EFFCC0043AC8C /* Cacao */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B66B598245E731D0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */;
+			package = 2B66B5A6245EFFCC0043AC8C /* XCRemoteSwiftPackageReference "Cacao" */;
 			productName = Cacao;
 		};
 /* End XCSwiftPackageProductDependency section */
